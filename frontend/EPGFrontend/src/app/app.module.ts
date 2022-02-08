@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './components/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardlistComponent } from './components/cardlist/cardlist.component';
+import { HttpClientModule } from '@angular/common/http';
+import { EventserviceService } from './services/eventservice.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,10 @@ import { CardlistComponent } from './components/cardlist/cardlist.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [EventserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

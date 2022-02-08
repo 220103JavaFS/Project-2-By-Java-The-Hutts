@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
+  //Variables for Event will be needed here 
+
   constructor() { }
 
+
   ngOnInit(): void {
+  
   }
 
 }
