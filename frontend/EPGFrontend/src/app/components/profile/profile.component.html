@@ -1,0 +1,59 @@
+<div class="profileInfo">
+    <div class="basicInfo">
+        <h2>"userName" Profile</h2> <!--interpolation to display user's username as heading-->
+    </div>
+    <form class="form-control">
+        <div>
+            <label class="labels" for="firstName">First Name: <abbr title="required" aria-label="required" style="color:rgba(255, 0, 0, 0.527)">*</abbr></label>
+            <input type="text" id="firstName" name="firstName" placeholder="First Name">
+        </div>
+        
+        <div>
+            <label class="labels" for="lastName">Last Name: <abbr title="required" aria-label="required" style="color:rgba(255, 0, 0, 0.527)">*</abbr></label>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+        </div>
+
+        <div>
+            <label class="labels" for="userName">Username: </label>
+            <input type="text" id="userName" name="userName" placeholder="Username" readonly>
+        </div>
+
+        <div>
+            <label class="labels" for="userEmail">Primary Email: <abbr title="required" aria-label="required" style="color:rgba(255, 0, 0, 0.527)">*</abbr></label>
+            <input type="text" id="userEmail" name="userEmail" placeholder="example@example.com">
+        </div>
+        <br>
+        <div class="activityPreferences">
+            <p>Please choose your activity preferences:</p>
+            <input type="checkbox" id="education" name="checkbox" value="1">
+            <label for="education">Education</label>
+            <input type="checkbox" id="recreational" name="checkbox" value="2">
+            <label for="recreational">Recreational</label>
+            <input type="checkbox" id="social" name="checkbox" value="3">
+            <label for="social">Social</label>
+            <input type="checkbox" id="diy" name="checkbox" value="4">
+            <label for="diy">DIY</label>
+            <input type="checkbox" id="charity" name="checkbox" value="5">
+            <label for="charity">Charity</label>
+            <input type="checkbox" id="cooking" name="checkbox" value="6">
+            <label for="cooking">Cooking</label>
+            <input type="checkbox" id="relaxation" name="checkbox" value="7">
+            <label for="relaxation">Relaxation</label>
+            <input type="checkbox" id="music" name="checkbox" value="8">
+            <label for="music">Music</label>
+            <input type="checkbox" id="busywork" name="checkbox" value="9">
+            <label for="busywork">Busywork</label>
+        </div>
+
+        <button type="button" id="updateProfileBtn">Update Profile</button>
+    </form>
+</div>
+
+
+<!-- user preferences ["education", "recreational", "social", "diy", 
+    "charity", "cooking", "relaxation", "music", "busywork"]
+    password -- hidden
+    <input value={{singleevent.notes}}/> -->
+
+    
+

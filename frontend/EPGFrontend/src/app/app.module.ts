@@ -8,13 +8,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardlistComponent } from './components/cardlist/cardlist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EventserviceService } from './services/eventservice.service';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     NavbarComponent,
-    CardlistComponent
+    CardlistComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
