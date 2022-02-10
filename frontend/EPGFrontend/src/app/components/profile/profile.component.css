@@ -1,0 +1,5 @@
+.options{
+    display:grid;
+    -ms-grid-column-align: center;
+    grid-template-columns: repeat(3, 1fr);
+}
