@@ -4,48 +4,79 @@
     </div>
     <form class="form-control">
         <div>
-            <label class="labels" for="firstName">First Name: <abbr title="required" aria-label="required" style="color:rgba(255, 0, 0, 0.527)">*</abbr></label>
-            <input type="text" id="firstName" name="firstName" placeholder="First Name">
+            <label class="labels" for="firstName">First Name: </label>
+            <input type="text" id="firstName" name="firstName" placeholder="First Name" style="margin-left: 5px">
         </div>
-        
         <div>
-            <label class="labels" for="lastName">Last Name: <abbr title="required" aria-label="required" style="color:rgba(255, 0, 0, 0.527)">*</abbr></label>
-            <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+            <label class="labels" for="lastName">Last Name: </label>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name" style="margin-left: 5px">
         </div>
-
         <div>
             <label class="labels" for="userName">Username: </label>
-            <input type="text" id="userName" name="userName" placeholder="Username" readonly>
+            <input type="text" id="userName" name="userName" placeholder="Username" style="margin-left: 5px" readonly>
+        </div>
+        <div>
+            <label class="labels" for="password">Password: </label>
+            <input type="password" id="password" name="password" placeholder="Password" style="margin-left: 5px">
+        </div>
+        <div>
+            <label class="labels" for="userEmail">Primary Email: </label>
+            <input type="text" id="userEmail" name="userEmail" placeholder="example@example.com" style="margin-left: 5px">
         </div>
 
-        <div>
-            <label class="labels" for="userEmail">Primary Email: <abbr title="required" aria-label="required" style="color:rgba(255, 0, 0, 0.527)">*</abbr></label>
-            <input type="text" id="userEmail" name="userEmail" placeholder="example@example.com">
-        </div>
         <br>
+
         <div class="activityPreferences">
             <p>Please choose your activity preferences:</p>
-            <input type="checkbox" id="education" name="checkbox" value="1">
-            <label for="education">Education</label>
-            <input type="checkbox" id="recreational" name="checkbox" value="2">
-            <label for="recreational">Recreational</label>
-            <input type="checkbox" id="social" name="checkbox" value="3">
-            <label for="social">Social</label>
-            <input type="checkbox" id="diy" name="checkbox" value="4">
-            <label for="diy">DIY</label>
-            <input type="checkbox" id="charity" name="checkbox" value="5">
-            <label for="charity">Charity</label>
-            <input type="checkbox" id="cooking" name="checkbox" value="6">
-            <label for="cooking">Cooking</label>
-            <input type="checkbox" id="relaxation" name="checkbox" value="7">
-            <label for="relaxation">Relaxation</label>
-            <input type="checkbox" id="music" name="checkbox" value="8">
-            <label for="music">Music</label>
-            <input type="checkbox" id="busywork" name="checkbox" value="9">
-            <label for="busywork">Busywork</label>
+            <div class="options">
+                <div>
+                    <label for="education">Education</label>
+                    <br>
+                    <input type="checkbox" id="education" name="checkbox" value="1">
+                </div>
+                <div>
+                    <label for="recreational">Recreational</label>
+                    <br>
+                    <input type="checkbox" id="recreational" name="checkbox" value="2">
+                </div>
+                <div>    
+                    <label for="social">Social</label>
+                    <br>
+                    <input type="checkbox" id="social" name="checkbox" value="3">
+                </div>
+                <div>
+                    <label for="diy">DIY</label>
+                    <br>
+                    <input type="checkbox" id="diy" name="checkbox" value="4">
+                </div>
+                <div>
+                    <label for="charity">Charity</label>
+                    <br>
+                    <input type="checkbox" id="charity" name="checkbox" value="5">
+                </div>
+                <div>
+                    <label for="cooking">Cooking</label>
+                    <br>
+                    <input type="checkbox" id="cooking" name="checkbox" value="6">
+                </div>
+                <div>
+                    <label for="relaxation">Relaxation</label>
+                    <br>
+                    <input type="checkbox" id="relaxation" name="checkbox" value="7">
+                </div>
+                <div>
+                    <label for="music">Music</label>
+                    <br>
+                    <input type="checkbox" id="music" name="checkbox" value="8">
+                </div>
+                <div>
+                    <label for="busywork">Busywork</label>
+                    <br>
+                    <input type="checkbox" id="busywork" name="checkbox" value="9">
+                </div>
+            </div>
         </div>
-
-        <button type="button" id="updateProfileBtn">Update Profile</button>
+        <button type="button" id="updateProfileBtn" style="margin-top: 5px;">Update Profile</button>
     </form>
 </div>
 
