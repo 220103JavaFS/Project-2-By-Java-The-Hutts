@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  //all user variables
+text:string = "luke lugi";
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

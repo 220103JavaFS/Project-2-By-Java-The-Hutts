@@ -11,10 +11,13 @@ export class CardlistComponent implements OnInit {
   
   //events variable will be set to event service get request
   events:event[] = EVENTS;
-
+  toggleNewEvent:boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggleEvent(){
+    this.toggleNewEvent = !this.toggleNewEvent
+  }
 }

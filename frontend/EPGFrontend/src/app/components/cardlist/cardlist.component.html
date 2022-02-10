@@ -1,8 +1,7 @@
-
-<div class="container">
+<app-button (click) = "toggleEvent()" text="Add New Event" color="dodgerBlue">asdfasdfasf</app-button>
+<div class="container" [hidden]="!toggleNewEvent">
     <app-newcard></app-newcard>
 </div>
-
 <div class = "container" >
     <div class = "row" >       
         <div class = "col-sm" *ngFor="let thisevent of events">
