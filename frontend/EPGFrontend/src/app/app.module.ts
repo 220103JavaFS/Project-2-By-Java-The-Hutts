@@ -14,6 +14,8 @@ import { ButtonComponent } from './components/button/button.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular'; 
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { ActivityserviceService } from './services/activityservice.service';
+import { NewcardComponent } from './components/newcard/newcard.component';
 
 FullCalendarModule.registerPlugins([ 
   dayGridPlugin
@@ -24,6 +26,7 @@ FullCalendarModule.registerPlugins([
   declarations: [
     AppComponent,
     CardComponent,
+    NewcardComponent,
     NavbarComponent,
     CardlistComponent,
     ProfileComponent,
@@ -38,7 +41,7 @@ FullCalendarModule.registerPlugins([
     BrowserModule,
     FullCalendarModule
   ],
-  providers: [EventserviceService],
+  providers: [EventserviceService, ActivityserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
