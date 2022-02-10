@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import {event} from '../../event';
 import {users} from '../../users';
 import { EventserviceService } from 'src/app/services/eventservice.service';
-// import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-newcard',

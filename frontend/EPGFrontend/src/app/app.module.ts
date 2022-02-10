@@ -16,6 +16,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { ActivityserviceService } from './services/activityservice.service';
 import { NewcardComponent } from './components/newcard/newcard.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 FullCalendarModule.registerPlugins([ 
   dayGridPlugin
@@ -39,7 +41,9 @@ FullCalendarModule.registerPlugins([
     HttpClientModule,
     FormsModule,
     BrowserModule,
-    FullCalendarModule
+    FullCalendarModule,
+    NoopAnimationsModule,
+    MatDatepickerModule
   ],
   providers: [EventserviceService, ActivityserviceService],
   bootstrap: [AppComponent]
