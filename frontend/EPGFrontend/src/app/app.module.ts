@@ -14,11 +14,13 @@ import { ButtonComponent } from './components/button/button.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular'; 
 import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 import { ActivityserviceService } from './services/activityservice.service';
 import { NewcardComponent } from './components/newcard/newcard.component';
 
 FullCalendarModule.registerPlugins([ 
-  dayGridPlugin
+  dayGridPlugin,
+  interactionPlugin
  
 ]);
 
