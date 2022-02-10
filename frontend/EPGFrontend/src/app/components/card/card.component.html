@@ -1,15 +1,16 @@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title"></h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h3 class="card-title">{{singleevent.name}}</h3>
+      <h5 class="card-text">Date: {{singleevent.date | date : 'shortDate' }}</h5>
+      <h5 class="card-time"> Start time: {{singleevent.startTime}}</h5>
+      <h5 *ngIf="singleevent.endTime !== null">{{singleevent.endTime}}</h5>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">An item</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
-    </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">Generate Reccomended Event</a>
-      <a href="#" class="card-link">Add Personal Event</a>
-    </div>
+    <div class="card-body text-center">
+      <div>Notes</div>
+      <input id="notes" value={{singleevent.notes}}/>
   </div>
+    <div class="card-footer">
+      <app-button color="lightblue" text="Invite Others"></app-button>
+    </div>
+
+</div>
