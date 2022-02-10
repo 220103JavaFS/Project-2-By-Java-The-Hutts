@@ -11,7 +11,14 @@ import { EventserviceService } from './services/eventservice.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from './components/button/button.component';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular'; 
+import dayGridPlugin from '@fullcalendar/daygrid';
+
+FullCalendarModule.registerPlugins([ 
+  dayGridPlugin
+ 
+]);
 
 @NgModule({
   declarations: [
@@ -20,14 +27,16 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     NavbarComponent,
     CardlistComponent,
     ProfileComponent,
-    ButtonComponent
+    ButtonComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModalModule
+    BrowserModule,
+    FullCalendarModule
   ],
   providers: [EventserviceService],
   bootstrap: [AppComponent]
