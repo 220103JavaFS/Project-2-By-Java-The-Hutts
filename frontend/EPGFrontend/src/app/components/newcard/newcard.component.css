@@ -1,0 +1,13 @@
+.card{
+    border-color: black;
+    box-shadow: 5px 5px 5px black;
+    border-radius: 2rem;
+    margin-top: 3rem;
+}
+
+.card .card-title{
+    text-align: center;
+}
+input{
+    margin-top: .5rem;
+}
