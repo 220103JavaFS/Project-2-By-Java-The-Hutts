@@ -15,7 +15,17 @@ export class CalendarComponent implements OnInit {
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
+    dateClick: this.handleDateClick.bind(this),
+    events: [
+      { title: 'Hiking', date: '2022-02-09' },
+      { title: 'Laundary', date: '2022-02-10' },
+      { title: 'Study', date: '2022-02-10' }
+    ]
 
   };
+
+  handleDateClick(arg: { dateStr: string; }) {
+    alert(arg.dateStr)
+  }
 
 }
