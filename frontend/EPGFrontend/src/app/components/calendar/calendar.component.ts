@@ -14,7 +14,8 @@ export class CalendarComponent implements OnInit {
   }
 
   calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth'
+    initialView: 'dayGridMonth',
+
   };
 
 }
