@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {EVENTS} from '../../mock-event';
+import {event} from '../../event'
 
 @Component({
   selector: 'app-card',
@@ -7,13 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  //Variables for Event will be needed here 
+  editNote:boolean = false;
+
+  @Input()
+    singleevent!:event;
+  @Input()
+    newNote!:string;
+  @Output()
+    onClick!:EventEmitter<any>;
+
+  today:number = Date.now()
 
   constructor() { }
 
 
   ngOnInit(): void {
-  
+    //Initialize event to get from service layer
+  }
+
+  addNote(newnote:string){
+    (newnote);
+  }
+
+  toggleEdit(){
+    if(this.editNote === false)
+      this.editNote=true;
+    else
+      this.editNote=false;
   }
 
 }

@@ -1,3 +1,13 @@
 .navbar{
     color: darkblue;
 }
+
+.navbar-dark .navbar-brand{
+    font-family: sans-serif;
+    font-size: x-large;
+    font-weight: 700;
+}
+
+.navbar-nav .nav-item #profile{
+    padding-left: 3rem;
+}

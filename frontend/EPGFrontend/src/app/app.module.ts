@@ -9,6 +9,8 @@ import { CardlistComponent } from './components/cardlist/cardlist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EventserviceService } from './services/eventservice.service';
 import { ProfileComponent } from './components/profile/profile.component';
+import { FormsModule } from '@angular/forms';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,14 @@ import { ProfileComponent } from './components/profile/profile.component';
     CardComponent,
     NavbarComponent,
     CardlistComponent,
-    ProfileComponent
+    ProfileComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [EventserviceService],
   bootstrap: [AppComponent]
