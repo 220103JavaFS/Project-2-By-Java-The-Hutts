@@ -1,19 +1,20 @@
 <div class="profileInfo">
     <div class="basicInfo">
+        <br><br>
         <h2>"userName" Profile</h2> <!--interpolation to display user's username as heading-->
     </div>
     <form class="form-control">
         <div>
             <label class="labels" for="firstName">First Name: </label>
-            <input type="text" id="firstName" name="firstName" placeholder="First Name" style="margin-left: 5px">
+            <input type="text" [(ngModel)]="firstName" placeholder="First Name" style="margin-left: 5px">
         </div>
         <div>
             <label class="labels" for="lastName">Last Name: </label>
-            <input type="text" id="lastName" name="lastName" placeholder="Last Name" style="margin-left: 5px">
+            <input type="text" [(ngModel)]="lastName" placeholder="Last Name" style="margin-left: 5px">
         </div>
         <div>
             <label class="labels" for="userName">Username: </label>
-            <input type="text" id="userName" name="userName" placeholder="Username" style="margin-left: 5px" readonly>
+            <input type="text" [(ngModel)]="userName" placeholder="Username" style="margin-left: 5px" readonly>
         </div>
         <div>
             <label class="labels" for="password">Password: </label>
@@ -21,7 +22,7 @@
         </div>
         <div>
             <label class="labels" for="userEmail">Primary Email: </label>
-            <input type="text" id="userEmail" name="userEmail" placeholder="example@example.com" style="margin-left: 5px">
+            <input type="text" [(ngModel)]="userEmail" placeholder="example@example.com" style="margin-left: 5px">
         </div>
 
         <br>

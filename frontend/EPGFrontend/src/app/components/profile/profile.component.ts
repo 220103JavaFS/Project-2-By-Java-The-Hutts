@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  firstName:string="";
+  lastName:string="";
+  userName:string="";
+  password:string="";
+  userEmail:string="";
+  userPreferences: []=[];
+
   constructor() { }
 
   ngOnInit(): void {
