@@ -6,23 +6,23 @@
     <form class="form-control">
         <div>
             <label class="labels" for="firstName">First Name: </label>
-            <input type="text" [(ngModel)]="firstName" placeholder="First Name" style="margin-left: 5px">
+            <input type="text" [(ngModel)]="firstName" placeholder={{firstName}} style="margin-left: 5px">
         </div>
         <div>
             <label class="labels" for="lastName">Last Name: </label>
-            <input type="text" [(ngModel)]="lastName" placeholder="Last Name" style="margin-left: 5px">
+            <input type="text" [(ngModel)]="lastName" placeholder={{lastName}} style="margin-left: 5px">
         </div>
         <div>
             <label class="labels" for="userName">Username: </label>
-            <input type="text" [(ngModel)]="userName" placeholder="Username" style="margin-left: 5px" readonly>
+            <input type="text" [(ngModel)]="userName" placeholder={{userName}} style="margin-left: 5px" readonly>
         </div>
         <div>
             <label class="labels" for="password">Password: </label>
-            <input type="password" id="password" name="password" placeholder="Password" style="margin-left: 5px">
+            <input type="password" [(ngModel)]="password" placeholder={{password}} style="margin-left: 5px">
         </div>
         <div>
             <label class="labels" for="userEmail">Primary Email: </label>
-            <input type="text" [(ngModel)]="userEmail" placeholder="example@example.com" style="margin-left: 5px">
+            <input type="text" [(ngModel)]="userEmail" placeholder={{userEmail}} style="margin-left: 5px">
         </div>
 
         <br>
