@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {EVENTS} from '../../mock-event';
-import {event} from '../../event'
+import {myevent} from '../../event'
 
 @Component({
   selector: 'app-card',
@@ -12,7 +12,7 @@ export class CardComponent implements OnInit {
   editNote:boolean = false;
 
   @Input()
-    singleevent!:event;
+    singleevent!:myevent;
   @Input()
     newNote!:string;
   @Output()

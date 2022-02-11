@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
-import {event} from '../../event';
+import {myevent} from '../../event';
 import {users} from '../../users';
 import { EventserviceService } from 'src/app/services/eventservice.service';
+import { ActivityserviceService } from 'src/app/services/activityservice.service';
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
@@ -24,13 +25,16 @@ export class NewcardComponent implements OnInit {
   // @Output()
   // neweventChange!:event;
 
-  constructor(private myservice:EventserviceService) { }
+  constructor(private service1:ActivityserviceService) { }
 
   ngOnInit(): void {
   }
 
-  myfunc(){
-    console.log(this.name);
-    console.log(this.date);
+  submitEvent(){
+    //eventservice post request here.
+  }
+
+  suggestEvent(){
+    return this.service1.getActivity();
   }
 }
