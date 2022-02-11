@@ -28,12 +28,12 @@ FullCalendarModule.registerPlugins([
   declarations: [
     AppComponent,
     CardComponent,
-    NewcardComponent,
     NavbarComponent,
     CardlistComponent,
     ProfileComponent,
     ButtonComponent,
-    CalendarComponent
+    CalendarComponent,
+    NewcardComponent,
   ],
   imports: [
     BrowserModule,

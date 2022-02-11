@@ -14,7 +14,7 @@ export class ActivityserviceService {
 
   constructor(private http: HttpClient) {}
 
-  getAct(): Observable<eventactivity>{
+  getActivity(): Observable<eventactivity>{
     return this.http.get<eventactivity>(this.boredURL + "/");
   }
 

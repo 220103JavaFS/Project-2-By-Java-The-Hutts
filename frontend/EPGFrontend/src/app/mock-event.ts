@@ -1,5 +1,5 @@
-import {event} from './event'
-export const EVENTS:event[] = [
+import {myevent} from './event'
+export const EVENTS:myevent[] = [
     {
         id:1,
         name:"Laundry",
@@ -8,8 +8,8 @@ export const EVENTS:event[] = [
         startTime: ""+ new Date().getHours() + ":" + new Date().getMinutes(),
         endTime:"",
         status:false,
-        participants:[]
     },
+    
     {
         id:2,
         date:new Date('December 19, 2005 03:24:00'),
@@ -18,6 +18,5 @@ export const EVENTS:event[] = [
         startTime:""+ new Date().getHours() + ":" + new Date().getMinutes(),
         endTime:"",
         status:true,
-        participants:[]
     }
 ]

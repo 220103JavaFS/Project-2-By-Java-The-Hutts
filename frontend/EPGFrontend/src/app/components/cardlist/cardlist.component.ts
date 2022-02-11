@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {EVENTS} from '../../mock-event'
-import { event } from 'src/app/event';
+import { myevent } from 'src/app/event';
 
 @Component({
   selector: 'app-cardlist',
@@ -10,11 +10,14 @@ import { event } from 'src/app/event';
 export class CardlistComponent implements OnInit {
   
   //events variable will be set to event service get request
-  events:event[] = EVENTS;
-
+  events:myevent[] = EVENTS;
+  toggleNewEvent:boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggleEvent(){
+    this.toggleNewEvent = !this.toggleNewEvent
+  }
 }
