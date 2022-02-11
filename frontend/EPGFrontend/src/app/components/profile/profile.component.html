@@ -29,53 +29,58 @@
 
         <div class="activityPreferences">
             <p>Please choose your activity preferences:</p>
-            <div class="options">
-                <div>
+            <section class="options" [formGroup]="preferences">
+                <p>
                     <label for="education">Education</label>
                     <br>
-                    <input type="checkbox" id="education" name="checkbox" value="1">
-                </div>
-                <div>
+                    <input type="checkbox" formControlName="education"  value="1">
+                </p>
+                <p>
                     <label for="recreational">Recreational</label>
                     <br>
-                    <input type="checkbox" id="recreational" name="checkbox" value="2">
-                </div>
-                <div>    
+                    <input type="checkbox" formControlName="recreational" value="2">
+                </p>
+                <p>    
                     <label for="social">Social</label>
                     <br>
-                    <input type="checkbox" id="social" name="checkbox" value="3">
-                </div>
-                <div>
+                    <input type="checkbox" formControlName="social" value="3">
+                </p>
+                <p>
                     <label for="diy">DIY</label>
                     <br>
-                    <input type="checkbox" id="diy" name="checkbox" value="4">
-                </div>
-                <div>
+                    <input type="checkbox" formControlName="diy" value="4">
+                </p>
+                <p>
                     <label for="charity">Charity</label>
                     <br>
-                    <input type="checkbox" id="charity" name="checkbox" value="5">
-                </div>
-                <div>
+                    <input type="checkbox" formControlName="charity" value="5">
+                </p>
+                <p>
                     <label for="cooking">Cooking</label>
                     <br>
-                    <input type="checkbox" id="cooking" name="checkbox" value="6">
-                </div>
-                <div>
+                    <input type="checkbox" formControlName="cooking" value="6">
+                </p>
+                <p>
                     <label for="relaxation">Relaxation</label>
                     <br>
-                    <input type="checkbox" id="relaxation" name="checkbox" value="7">
-                </div>
-                <div>
+                    <input type="checkbox" formControlName="relaxation" value="7">
+                </p>
+                <p>
                     <label for="music">Music</label>
                     <br>
-                    <input type="checkbox" id="music" name="checkbox" value="8">
-                </div>
-                <div>
+                    <input type="checkbox" formControlName="music" value="8">
+                </p>
+                <p>
                     <label for="busywork">Busywork</label>
                     <br>
-                    <input type="checkbox" id="busywork" name="checkbox" value="9">
-                </div>
-            </div>
+                    <input type="checkbox" formControlName="busywork" value="9">
+                </p>
+            </section>
+
+            <section class="chekedPreferences" [formGroup]="preferences">
+                <p>You chose:</p>
+                {{preferences.value | json}}
+            </section>
         </div>
         <button type="button" id="updateProfileBtn" style="margin-top: 5px;">Update Profile</button>
     </form>
