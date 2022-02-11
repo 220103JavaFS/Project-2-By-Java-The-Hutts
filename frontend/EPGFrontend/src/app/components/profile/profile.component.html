@@ -1,80 +1,86 @@
 <div class="profileInfo">
     <div class="basicInfo">
+        <br><br>
         <h2>"userName" Profile</h2> <!--interpolation to display user's username as heading-->
     </div>
     <form class="form-control">
         <div>
             <label class="labels" for="firstName">First Name: </label>
-            <input type="text" id="firstName" name="firstName" placeholder="First Name" style="margin-left: 5px">
+            <input type="text" [(ngModel)]="firstName" placeholder={{firstName}} style="margin-left: 5px">
         </div>
         <div>
             <label class="labels" for="lastName">Last Name: </label>
-            <input type="text" id="lastName" name="lastName" placeholder="Last Name" style="margin-left: 5px">
+            <input type="text" [(ngModel)]="lastName" placeholder={{lastName}} style="margin-left: 5px">
         </div>
         <div>
             <label class="labels" for="userName">Username: </label>
-            <input type="text" id="userName" name="userName" placeholder="Username" style="margin-left: 5px" readonly>
+            <input type="text" [(ngModel)]="userName" placeholder={{userName}} style="margin-left: 5px" readonly>
         </div>
         <div>
             <label class="labels" for="password">Password: </label>
-            <input type="password" id="password" name="password" placeholder="Password" style="margin-left: 5px">
+            <input type="password" [(ngModel)]="password" placeholder={{password}} style="margin-left: 5px">
         </div>
         <div>
             <label class="labels" for="userEmail">Primary Email: </label>
-            <input type="text" id="userEmail" name="userEmail" placeholder="example@example.com" style="margin-left: 5px">
+            <input type="text" [(ngModel)]="userEmail" placeholder={{userEmail}} style="margin-left: 5px">
         </div>
 
         <br>
 
         <div class="activityPreferences">
             <p>Please choose your activity preferences:</p>
-            <div class="options">
+            <section class="options" [formGroup]="preferences">
                 <div>
                     <label for="education">Education</label>
                     <br>
-                    <input type="checkbox" id="education" name="checkbox" value="1">
+                    <input type="checkbox" formControlName="education"  value="1">
                 </div>
                 <div>
                     <label for="recreational">Recreational</label>
                     <br>
-                    <input type="checkbox" id="recreational" name="checkbox" value="2">
+                    <input type="checkbox" formControlName="recreational" value="2">
                 </div>
                 <div>    
                     <label for="social">Social</label>
                     <br>
-                    <input type="checkbox" id="social" name="checkbox" value="3">
+                    <input type="checkbox" formControlName="social" value="3">
                 </div>
                 <div>
                     <label for="diy">DIY</label>
                     <br>
-                    <input type="checkbox" id="diy" name="checkbox" value="4">
+                    <input type="checkbox" formControlName="diy" value="4">
                 </div>
                 <div>
                     <label for="charity">Charity</label>
                     <br>
-                    <input type="checkbox" id="charity" name="checkbox" value="5">
+                    <input type="checkbox" formControlName="charity" value="5">
                 </div>
                 <div>
                     <label for="cooking">Cooking</label>
                     <br>
-                    <input type="checkbox" id="cooking" name="checkbox" value="6">
+                    <input type="checkbox" formControlName="cooking" value="6">
                 </div>
                 <div>
                     <label for="relaxation">Relaxation</label>
                     <br>
-                    <input type="checkbox" id="relaxation" name="checkbox" value="7">
+                    <input type="checkbox" formControlName="relaxation" value="7">
                 </div>
                 <div>
                     <label for="music">Music</label>
                     <br>
-                    <input type="checkbox" id="music" name="checkbox" value="8">
+                    <input type="checkbox" formControlName="music" value="8">
                 </div>
                 <div>
                     <label for="busywork">Busywork</label>
                     <br>
-                    <input type="checkbox" id="busywork" name="checkbox" value="9">
+                    <input type="checkbox" formControlName="busywork" value="9">
                 </div>
-            </div>
+            </section>
+
+            <section class="chekedPreferences" [formGroup]="preferences">
+                <p>You chose:</p>
+                {{preferences.value | json}}
+            </section>
         </div>
         <button type="button" id="updateProfileBtn" style="margin-top: 5px;">Update Profile</button>
     </form>

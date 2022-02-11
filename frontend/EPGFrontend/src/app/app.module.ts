@@ -9,16 +9,18 @@ import { CardlistComponent } from './components/cardlist/cardlist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EventserviceService } from './services/eventservice.service';
 import { ProfileComponent } from './components/profile/profile.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from './components/button/button.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular'; 
 import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 import { ActivityserviceService } from './services/activityservice.service';
 import { NewcardComponent } from './components/newcard/newcard.component';
 
 FullCalendarModule.registerPlugins([ 
-  dayGridPlugin
+  dayGridPlugin,
+  interactionPlugin
  
 ]);
 
@@ -39,7 +41,8 @@ FullCalendarModule.registerPlugins([
     HttpClientModule,
     FormsModule,
     BrowserModule,
-    FullCalendarModule
+    FullCalendarModule,
+    ReactiveFormsModule
   ],
   providers: [EventserviceService, ActivityserviceService],
   bootstrap: [AppComponent]
