@@ -36,7 +36,7 @@ FullCalendarModule.registerPlugins([
     ProfileComponent,
     ButtonComponent,
     CalendarComponent,
-    NewcardComponent,
+    NewcardComponent
   ],
   imports: [
     BrowserModule,

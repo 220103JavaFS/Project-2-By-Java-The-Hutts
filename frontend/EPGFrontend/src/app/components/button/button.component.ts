@@ -11,6 +11,8 @@ export class ButtonComponent implements OnInit {
   text:string = "";
   @Input()
   color:string = "";
+  @Input()
+  classtype:string = "";
 
   toggle:boolean = false;
 

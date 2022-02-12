@@ -8,34 +8,22 @@ import {myevent} from '../../event'
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-
-  editNote:boolean = false;
-
+  
+  //Event variable to display this cards details
   @Input()
     singleevent!:myevent;
-  @Input()
-    newNote!:string;
+  
+  //Send boolean event to parent component on click
   @Output()
-    onClick!:EventEmitter<any>;
-
-  today:number = Date.now()
+  onRemoveClick!:EventEmitter<boolean>;
 
   constructor() { }
+  ngOnInit(): void {}
 
-
-  ngOnInit(): void {
-    //Initialize event to get from service layer
+  //function for event emitter, attempting to close card
+  removeClick(){
+    this.onRemoveClick.emit();   
   }
 
-  addNote(newnote:string){
-    (newnote);
-  }
-
-  toggleEdit(){
-    if(this.editNote === false)
-      this.editNote=true;
-    else
-      this.editNote=false;
-  }
-
+ 
 }

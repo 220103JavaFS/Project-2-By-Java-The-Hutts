@@ -5,10 +5,19 @@
     margin-top: 3rem;
 }
 
+.card-header{
+    text-align: left;
+}
+
+
 .card .card-title{
     text-align: center;
 }
 
 .card-body #notes{
     border-color: black;
+}
+
+textarea{
+    border-radius: .4rem;
 }

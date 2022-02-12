@@ -3,6 +3,11 @@
     justify-content: center;
 }
 
+/* button{
+padding-top: 5rem;
+margin: 0;
+} */
+
 app-button{
     margin-top: 2rem;
     display:flex;
