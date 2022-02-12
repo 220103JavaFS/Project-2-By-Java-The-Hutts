@@ -1,14 +1,15 @@
-<div class="card" style="width: 18rem;">
-    <h3 class="card-title"> New Event!</h3>
+<div class="card text-center">
+  <div class="card-header"><button type="button" class="btn-close" ></button><h3 class="card-title"> New Event!</h3>
+    </div>
+    
     <div class="card-body text-center">
-        <div>Event Details</div><br>
-        Title:<input type="text" [(ngModel)]="name" /><br>
-        Date: <input type="date" [(ngModel)]="date"/><br>
-        Time:<input type="time" [(ngModel)]="startTime"/><br>
-        Note:<input type="text" [(ngModel)]="notes" placeholder="Additional notes"/>
+        Title:  <input type="text" [(ngModel)]="name" /><br>
+        Date:   <input type="date" [(ngModel)]="date"/><br>
+        Time:   <input type="time" [(ngModel)]="startTime"/><br>
+        <textarea type="textarea" rows="6" cols="25" [(ngModel)]="notes" placeholder="Additional notes"></textarea>
   </div>
     <div class="card-footer">
-      <app-button color="dodgerBlue" text="Suggestions"></app-button>
+      <app-button color="dodgerBlue" text="Suggestions" (click)="suggestEvent()"></app-button>
       <app-button color="dodgerBlue" text="Submit" (click)="submitEvent()"></app-button>
     </div>
 </div>

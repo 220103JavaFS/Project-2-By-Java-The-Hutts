@@ -1,8 +1,11 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import {myevent} from '../../event';
 import {users} from '../../users';
 import { EventserviceService } from 'src/app/services/eventservice.service';
 import { ActivityserviceService } from 'src/app/services/activityservice.service';
+import { Observable, Subscriber } from 'rxjs';
+import { eventactivity } from 'src/app/eventactivity';
+import { toChildArray } from 'preact';
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
@@ -12,29 +15,48 @@ import { ActivityserviceService } from 'src/app/services/activityservice.service
 })
 export class NewcardComponent implements OnInit {
   
+  //data needed for card and suggested activity
   name!:string;
-  date!:Date;
+  date!:string;
   notes!:string;
   status:boolean = false;
   startTime!:string;
   endTime!:string;
-  participants!: users[];
+  dd!:string;
+  thisdate:Date = new Date();
+  day:number = this.thisdate.getDate();
+  mm:string = String(this.thisdate.getMonth() + 1).padStart(2, '0');
+  yyyy:string=String(this.thisdate.getFullYear());
 
-  // @Input()
-  // newevent!:event;
-  // @Output()
-  // neweventChange!:event;
+ //structure to hold eventactivity from request to bored api
+ event!:eventactivity;
 
-  constructor(private service1:ActivityserviceService) { }
+ //send myevent type to bored api
+ @Output()
+   onSuggestEvent: EventEmitter<myevent> = new EventEmitter;
 
-  ngOnInit(): void {
+
+  //function to randomize the date for suggested activity
+  randomizeDay(min:number,max:number){
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min +1)+min);
   }
+ 
+  constructor(private service1:ActivityserviceService) {}
 
-  submitEvent(){
-    //eventservice post request here.
-  }
+  ngOnInit(): void {}
 
+  //call api and set current event values to those recieved.
   suggestEvent(){
-    return this.service1.getActivity();
+    this.service1.getActivity().subscribe((eventactivity) =>(this.event = eventactivity))
+    this.name = this.event.type;
+    this.notes = this.event.activity;
+    this.dd = String(this.randomizeDay(this.day,30)).padStart(2,'0');
+    this.date = "" + this.yyyy + "-" + this.mm + "-" + this.dd
+  }
+  
+  submitEvent(){
+    //call event service and post to db
   }
 }

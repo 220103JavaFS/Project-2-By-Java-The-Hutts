@@ -22,10 +22,12 @@ export class EventserviceService {
     return this.http.get<number>(this.local + "/path/" + id);
   }
 
-  getEventByUserID(id:number): Observable<any>{
-    return this.http.get<number>(this.local +"/path/" +id);
+  //userId as input
+  getAllUsersEvents(id:number): Observable<myevent[]>{
+    return this.http.get<myevent[]>(this.local + "/path/" + id);
   }
 
+  //event status as input
   getEventByStatus(status:boolean):Observable<any>{
     return this.http.get<number>(this.local +"/path/" + status);
   }

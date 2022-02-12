@@ -1,15 +1,18 @@
-<div class="card" style="width: 18rem;">
+<div class="card text-center" style="width: 18rem;">
+  <div class="card-header card-title">
+    <button type="button" class="btn-close" (click)="removeClick()"></button>
+    <h3>{{singleevent.name}}</h3></div>
     <div class="card-body">
-      <h3 class="card-title">{{singleevent.name}}</h3>
       <h5 class="card-text">Date: {{singleevent.date | date : 'shortDate' }}</h5>
       <h5 class="card-time"> Start time: {{singleevent.startTime}}</h5>
       <h5 *ngIf="singleevent.endTime !== null">{{singleevent.endTime}}</h5>
     </div>
     <div class="card-body text-center">
       <div>Notes</div>
-      <input id="notes" value={{singleevent.notes}}/>
+      <textarea id="notes" rows="3" cols="25" >{{singleevent.notes}}</textarea>
   </div>
     <div class="card-footer">
       <app-button color="dodgerBlue" text="Invite Others"></app-button>
     </div>
 </div>
+
