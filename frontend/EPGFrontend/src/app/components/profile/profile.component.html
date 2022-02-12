@@ -1,84 +1,84 @@
 <div class="profileInfo">
     <div class="basicInfo">
         <br><br>
-        <h2>{{userName}} Profile</h2>
+        <h2>{{newUsername}} Profile</h2>
     </div>
         <div>
             <label class="labels" for="firstName">First Name: </label>
-            <input type="text" [(ngModel)]="firstName" value={{firstName}} style="margin-left: 5px">
+            <input type="text" [(ngModel)]="newUserFName" value={{newUserFName}} style="margin-left: 5px">
         </div>
         <div>
             <label class="labels" for="lastName">Last Name: </label>
-            <input type="text" [(ngModel)]="lastName" value={{lastName}} style="margin-left: 5px">
+            <input type="text" [(ngModel)]="newUserLName" value={{newUserLName}} style="margin-left: 5px">
         </div>
         <div>
             <label class="labels" for="userName">Username: </label>
-            <input type="text" [(ngModel)]="userName" value={{userName}} style="margin-left: 5px" readonly>
+            <input type="text" [(ngModel)]="newUsername" value={{newUsername}} style="margin-left: 5px" readonly>
         </div>
         <div>
             <label class="labels" for="password">Password: </label>
-            <input type="password" [(ngModel)]="password" value={{password}} style="margin-left: 5px" readonly>
+            <input type="password" [(ngModel)]="newPassword" value={{newPassword}} style="margin-left: 5px" readonly>
         </div>
         <div>
             <label class="labels" for="userEmail">Primary Email: </label>
-            <input type="text" [(ngModel)]="userEmail" value={{userEmail}} style="margin-left: 5px">
+            <input type="text" [(ngModel)]="newEmail" value={{newEmail}} style="margin-left: 5px">
         </div>
 
         <br>
 
         <div class="activityPreferences">
             <p>Please choose your activity preferences:</p>
-            <section class="options" [formGroup]="preferences">
+            <section class="options">
                 <div>
                     <label for="education">Education</label>
                     <br>
-                    <input type="checkbox" formControlName="education"  value="1">
+                    <input type="checkbox" name="education"  value="EDUCATION">
                 </div>
                 <div>
                     <label for="recreational">Recreational</label>
                     <br>
-                    <input type="checkbox" formControlName="recreational" value="2">
+                    <input type="checkbox" name="recreational" value="RECREATIONAL">
                 </div>
                 <div>    
                     <label for="social">Social</label>
                     <br>
-                    <input type="checkbox" formControlName="social" value="3">
+                    <input type="checkbox" name="social" value="SOCIAL">
                 </div>
                 <div>
                     <label for="diy">DIY</label>
                     <br>
-                    <input type="checkbox" formControlName="diy" value="4">
+                    <input type="checkbox" name="diy" value="DIY">
                 </div>
                 <div>
                     <label for="charity">Charity</label>
                     <br>
-                    <input type="checkbox" formControlName="charity" value="5">
+                    <input type="checkbox" name="charity" value="CHARITY">
                 </div>
                 <div>
                     <label for="cooking">Cooking</label>
                     <br>
-                    <input type="checkbox" formControlName="cooking" value="6">
+                    <input type="checkbox" name="cooking" value="COOKING">
                 </div>
                 <div>
                     <label for="relaxation">Relaxation</label>
                     <br>
-                    <input type="checkbox" formControlName="relaxation" value="7">
+                    <input type="checkbox" name="relaxation" value="RELAXATION">
                 </div>
                 <div>
                     <label for="music">Music</label>
                     <br>
-                    <input type="checkbox" formControlName="music" value="8">
+                    <input type="checkbox" name="music" value="MUSIC">
                 </div>
                 <div>
                     <label for="busywork">Busywork</label>
                     <br>
-                    <input type="checkbox" formControlName="busywork" value="9">
+                    <input type="checkbox" name="busywork" value="BUSYWORK">
                 </div>
             </section>
 
-            <section class="chekedPreferences" [formGroup]="preferences">
+            <section class="chekedPreferences">
                 <p>You chose:</p>
-                {{preferences.value | json}}
+                <!-- {{preferences.value | json}} -->
             </section>
         </div>
         <button type="button" id="updateProfileBtn" style="margin-top: 5px;">Update Profile</button>
