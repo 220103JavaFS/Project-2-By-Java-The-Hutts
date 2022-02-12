@@ -7,25 +7,25 @@ import { users } from '../users'
 })
 export class UserserviceService {
 
-  private local = 'https://localhost:6000/users/'
+  private local = 'https://localhost:8083/data/users/'
 
   constructor(private http: HttpClient) { }
 
-  createUser(thisuser:users):Observable<users>{
-    return this.http.post<users>(this.local,thisuser);
+  createUser(thisuser:users):Observable<users[]>{
+    return this.http.post<users[]>(this.local,thisuser);
   }
 
-  getUserByID(id:number):Observable<any>{
-    return this.http.get<number>(this.local + id);
+  getUserByID(id:number){
+    return this.http.get<users>(this.local + id);
   }
 
-  getUserByUsername(name:string):Observable<any>{
-    return this.http.get<string>(this.local + name);
+  getUserByUsername(name:users)/*:Observable<any>*/{
+    return this.http.get<users>(this.local + name);
   }
 
-  getUserByEmail(email:string):Observable<any>{
-    return this.http.get<string>(this.local + email);
-  }
+  // getUserByEmail(email:users):Observable<any>{
+  //   return this.http.get<users>(this.local + email);
+  // }
 
   
 }
