@@ -19,6 +19,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import { ActivityserviceService } from './services/activityservice.service';
 import { NewcardComponent } from './components/newcard/newcard.component';
+import { LandingpageComponent } from './components/landingpage/landingpage.component';
 
 FullCalendarModule.registerPlugins([ 
   dayGridPlugin,
@@ -36,7 +37,8 @@ FullCalendarModule.registerPlugins([
     ProfileComponent,
     ButtonComponent,
     CalendarComponent,
-    NewcardComponent
+    NewcardComponent,
+    LandingpageComponent
   ],
   imports: [
     BrowserModule,

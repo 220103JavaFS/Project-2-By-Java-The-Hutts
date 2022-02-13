@@ -1,0 +1,28 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.centered {
+  position: absolute;
+  z-index: 100;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+img {
+  /* position: absolute; */
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  filter: brightness(50%);
+}
