@@ -4,6 +4,7 @@ import { combineLatestInit } from 'rxjs/internal/observable/combineLatest';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { CardlistComponent } from './components/cardlist/cardlist.component';
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
+import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 
@@ -23,6 +24,9 @@ const routes: Routes = [{
 }, {
   path:"register",
   component: RegisterComponent
+}, {
+  path:"login",
+  component: LoginComponent
 }
 ];
 

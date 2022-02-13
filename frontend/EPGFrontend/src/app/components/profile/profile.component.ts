@@ -24,15 +24,15 @@ export class ProfileComponent implements OnInit {
   constructor(private us:UserserviceService){ }
 
   ngOnInit(): void {
-    this.getUserProfileById(this.UserId);
-  }
+  //   this.getUserProfileById(this.UserId);
+  // }
 
-  getUserProfileById(id:number){
-    this.us.getUserByID(id).subscribe(
-      (response: users[]) => {
-        this.newUser = response;
-      }
-    )
+  // getUserProfileById(id:number){
+  //   this.us.getUserByID(id).subscribe(
+  //     (response: users[]) => {
+  //       this.newUser = response;
+  //     }
+  //   )
   }
 
   sendUsers(){
