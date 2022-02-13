@@ -1,6 +1,6 @@
 <div class="card text-center" style="width: 18rem;">
   <div class="card-header card-title">
-    <button type="button" class="btn-close" (click)="removeClick()"></button>
+    <button type="button" class="btn-close" (click)="removeClick(singleevent.id)"></button>
     <h3>{{singleevent.name}}</h3></div>
     <div class="card-body">
       <h5 class="card-text">Date: {{singleevent.date | date : 'shortDate' }}</h5>
