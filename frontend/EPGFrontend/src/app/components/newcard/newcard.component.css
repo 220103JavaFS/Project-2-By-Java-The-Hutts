@@ -1,16 +1,27 @@
 .card {
+    width: 30rem;
     border-color: black;
     box-shadow: 5px 5px 5px black;
     border-radius: 2rem;
     margin-top: 3rem;
 }
 
+.card-header{
+    text-align: left;
+}
+
 .card .card-title{
     text-align: center;
+    margin-top: 1rem;;
 }
 
 input{
+    width:20rem;
     margin-bottom: .3rem;
     border-color: black;
     border-radius: .2rem;
+}
+
+.close{
+    border-radius: 2rem;
 }
