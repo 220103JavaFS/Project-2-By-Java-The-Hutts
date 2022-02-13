@@ -1,5 +1,14 @@
-<div class="container">
-    <img src="../../assets/epgImage.jpeg" style="width: 100%;">
-    <app-button class = "centered" text="register" color="dodgerblue"></app-button>
 
-</div>
+<header id="main">
+    <h1 style="color: white;">
+        Welcome to the Event Planner && Generator!
+    </h1>
+    <p style="color: white;">
+        Keep track of your busy life, set your activity prefrences, and get suggestions.
+    </p>
+    <!-- <a href="#" class="button">Register</a> -->
+    <div style="display: inline-block; margin-top: 1rem;">
+        <app-button text="Register"  [routerLink]="['/register']" class="floated"></app-button>
+        <app-button text="login" [routerLink]="['/login']" class="floated"></app-button>
+    </div>
+</header>

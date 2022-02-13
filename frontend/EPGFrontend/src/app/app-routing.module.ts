@@ -9,8 +9,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [{
-  path:"landing",
-  component: LandingpageComponent
+  path:"",
+  component: LandingpageComponent,
 },
 {
   path:"MyEvents",
