@@ -5,7 +5,9 @@
 <div class = "container">
     <div class = "row" >       
         <div class = "col-sm" *ngFor="let thisevent of events">
-            <app-card [singleevent]="thisevent"></app-card>
+            <div >
+            <app-card [singleevent]="thisevent" (onRemoveClick)="removeCard($event)"></app-card>
+            </div>
         </div>
     </div> 
 </div>

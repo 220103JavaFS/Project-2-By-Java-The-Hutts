@@ -15,6 +15,9 @@ export class CardlistComponent implements OnInit {
   events:myevent[] = EVENTS;
   toggleNewEvent:boolean = false;
 
+  //boolean for hiding a card
+  hideevent:boolean = false;
+
   //stores activity recieved by api
   suggestActivity!:eventactivity;
 
@@ -28,5 +31,13 @@ export class CardlistComponent implements OnInit {
   }
   toggleEvent(){
     this.toggleNewEvent = !this.toggleNewEvent
+  }
+
+  //function to temporarily remove card from users display
+  removeCard(id:number){
+    for(var i= 0; i < this.events.length; i++){
+      if(this.events[i].id === id)
+        this.events.splice(i,1);
+    }
   }
 }
