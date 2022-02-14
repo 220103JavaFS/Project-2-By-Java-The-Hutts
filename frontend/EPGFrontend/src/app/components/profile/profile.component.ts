@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserserviceService } from 'src/app/services/userservice.service';
 import { UserPreferences } from 'src/app/user-preferences';
 import { users } from 'src/app/users';
@@ -11,39 +11,84 @@ import { users } from 'src/app/users';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  types: any[]=[];
+  user: any = {};
+  profileForm!: FormGroup;
 
-  UserId:number = 0;
-  newUserFName:string = '';
-  newUserLName:string = '';
-  newUsername:string = '';
-  newPassword:string = '';
-  newEmail:string = '';
-  newUser:users[] = [];
+  preferences = Object.keys(UserPreferences);
 
-
-  constructor(private us:UserserviceService){ }
+  constructor(private formBuilder: FormBuilder){
+  }
 
   ngOnInit(): void {
-    this.getUserProfileById(this.UserId);
+    this.profileForm = this.formBuilder.group({
+      newUserFName: [null, Validators.required],
+      newUserLName: [null, Validators.required],
+      newUsername: [null],
+      newPassword: [null],
+      newEmail: [null, [Validators.required, Validators.email]],
+      types: new FormArray([])
+    })
+
   }
 
-  getUserProfileById(id:number){
-    this.us.getUserByID(id).subscribe(
-      (response: users[]) => {
-        this.newUser = response;
-      }
-    )
+  onCheckboxChange(e:any) {
+    const prefArray: FormArray = this.profileForm.get('types') as FormArray;
+
+    if (e.target.checked) {
+
+      prefArray.push(new FormControl(e.target.value));
+
+    } else {
+      let i: number = 0;
+      prefArray.controls.forEach((item: AbstractControl) => {
+        if(item.value == e.target.value){
+          prefArray.removeAt(i);
+          return;
+        }
+        i++;
+      });
+    }
   }
 
-  sendUsers(){
-    let u = new users(0, this.newUserFName, this.newUserLName, this.newUsername, this.newEmail, this.newPassword, [])
-    this.us.createUser(u).subscribe(
-      (response: users[]) => {
-        this.newUser = response;
-      }
-    )
+  onSubmit() {
+    console.log(this.profileForm.value);
+    this.user = Object.assign(this.user, this.profileForm.value);
+    this.addUser(this.user);
   }
+
+  addUser(user: any){
+    let users = [];
+    if (localStorage.getItem('Users')){
+      users= JSON.parse(localStorage.getItem('Users') || '{}');
+      users=[user, ...users];
+    } else {
+      users=[user];
+    }
+    localStorage.setItem('Users',JSON.stringify(this.user));
+  }
+
+  testuser = JSON.parse(localStorage.getItem('Users')||'{}');
 }
+  // getUserProfileById(id:number){
+  //   this.us.getUserByID(id).subscribe(
+  //     (response: users[]) => {
+  //       this.newUser = response;
+  //     }
+  //   )
+  // }
+
+  // sendUsers(){
+  //   let u = new users(0, this.newUserFName, this.newUserLName, this.newUsername, this.newEmail, this.newPassword, [])
+  //   this.us.createUser(u).subscribe(
+  //     (response: users[]) => {
+  //       this.newUser = response;
+  //     }
+  //   )
+  // }
+
+
+
 
 
 
