@@ -1,28 +1,29 @@
-html, body {
-  height: 100%;
+*{
   margin: 0;
   padding: 0;
 }
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
+
+body{
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 23px;
+  color: wheat;
 }
-.centered {
-  position: absolute;
-  z-index: 100;
-  font-weight: bold;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+#main{
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('src/assets/epgImage.jpeg');
+  /* vh = viewport height -- relative to screen */
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
 }
-img {
-  /* position: absolute; */
-  padding: 0;
-  display: block;
-  margin: 0 auto;
-  max-height: 100%;
-  min-width: 100%;
-  max-width: 100%;
-  filter: brightness(50%);
+
+.floated{
+  display:inline-block;
+   margin-right:5px;
 }

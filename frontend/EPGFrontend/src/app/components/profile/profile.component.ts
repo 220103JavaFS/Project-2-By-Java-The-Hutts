@@ -70,6 +70,20 @@ export class ProfileComponent implements OnInit {
 
   testuser = JSON.parse(localStorage.getItem('Users')||'{}');
 }
+
+
+
+  //   this.getUserProfileById(this.UserId);
+  // }
+
+  // getUserProfileById(id:number){
+  //   this.us.getUserByID(id).subscribe(
+  //     (response: users[]) => {
+  //       this.newUser = response;
+  //     }
+  //   )
+
+
   // getUserProfileById(id:number){
   //   this.us.getUserByID(id).subscribe(
   //     (response: users[]) => {
@@ -78,6 +92,7 @@ export class ProfileComponent implements OnInit {
   //   )
   // }
 
+  
   // sendUsers(){
   //   let u = new users(0, this.newUserFName, this.newUserLName, this.newUsername, this.newEmail, this.newPassword, [])
   //   this.us.createUser(u).subscribe(
@@ -85,35 +100,4 @@ export class ProfileComponent implements OnInit {
   //       this.newUser = response;
   //     }
   //   )
-  // }
-
-
-
-
-
-
-
-
-
-
-
-  // firstName:string="test";
-  // lastName:string="user";
-  // userName:string="testUser";
-  // password:string="testpw";
-  // userEmail:string="test@test.com";
-  // preferences:FormGroup;
-
-  // constructor(fb:FormBuilder) { 
-  //   this.preferences = fb.group({
-  //     education:false, 
-  //     recreational:false,
-  //     social:false,
-  //     diy:false,
-  //     charity:false,
-  //     cooking:false,
-  //     relaxation:false,
-  //     music:false,
-  //     busywork:false
-  //   });
   // }
