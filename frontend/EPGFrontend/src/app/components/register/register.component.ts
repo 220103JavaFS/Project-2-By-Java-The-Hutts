@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
       userLastName: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
       username: [null, Validators.required],
-      password: [null, [Validators.required, Validators.minLength(6)]],
+      password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
       confirmPassword: [null, [Validators.required, Validators.maxLength(10)]]
     }, {validators: this.passwordMatchingValidator});
   }
@@ -40,9 +40,27 @@ export class RegisterComponent implements OnInit {
     {notmatched: true};
   }
 
-  get userName() {
-    return this.registrationForm.get('userName') as FormControl;
+// Getter methods for all form controls
+
+  get userFirstName(){
+    return this.registrationForm.get('userFirstName') as FormControl;
   }
+  get userLastName(){
+    return this.registrationForm.get('userLastName') as FormControl;
+  }
+  get email(){
+    return this.registrationForm.get('email') as FormControl;
+  }
+  get username() {
+    return this.registrationForm.get('username') as FormControl;
+  }
+  get password(){
+    return this.registrationForm.get('password') as FormControl;
+  }
+  get confirmPassword(){
+    return this.registrationForm.get('confirmPassword') as FormControl;
+  }
+  
 
   onSubmit() {
     console.log(this.registrationForm);
