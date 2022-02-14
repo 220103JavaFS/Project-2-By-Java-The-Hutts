@@ -8,30 +8,27 @@
                 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
                     <div class="form-group col-12">
                         <label class="labels" for="firstName">First Name</label>
-                        <input type="text" class="form-control" formControlName="newUserFName" value={{testuser.newUserFName}}>
+                        <input type="text" class="form-control" formControlName="newUserFName" [(ngModel)]="testuser.newUserFName">
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="lastName">Last Name: </label>
-                        <input type="text" class="form-control" formControlName="newUserLName">
+                        <input type="text" class="form-control" formControlName="newUserLName" [(ngModel)]="testuser.newUserLName">
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="userName">Username: </label>
-                        <input type="text" class="form-control" formControlName="newUsername"  readonly>
+                        <input type="text" class="form-control" formControlName="newUsername"  readonly [(ngModel)]="testuser.newUsername">
                     </div>
-                    <div class="form-group col-12">
-                        <label class="labels" for="password">Password: </label>
-                        <input type="password" class="form-control" formControlName="newPassword"  readonly>
-                    </div>
+                    
                     <div class="form-group col-12">
                         <label class="labels" for="userEmail">Primary Email: </label>
-                        <input type="text" class="form-control" formControlName="newEmail">
+                        <input type="text" class="form-control" formControlName="newEmail" [(ngModel)]="testuser.newEmail">
                     </div>
 
                     <br>
                     
                     <p>Please choose your activity preferences:</p>
                     <div class="form-group form-check" *ngFor="let type of preferences">
-                        <input class="form-check-input" type="checkbox" [value]="type" (change)="onCheckboxChange($event)" id="type" >
+                        <input class="form-check-input" type="checkbox" [value]="type" (change)="onCheckboxChange($event)" id="type">
                         <label for="type" class="form-check-label">{{type}}</label><br>
                     </div>
                     <div class="form-group col-12">
@@ -53,3 +50,11 @@
     <!--<section class="chekedPreferences">
         <p>You chose:</p>
          {{preferences.value | json}} -->
+
+
+         <!-- <div class="form-group col-12">
+                        <label class="labels" for="password">Password: </label>
+                        <input type="password" class="form-control" formControlName="newPassword"  readonly [(ngModel)]="testuser.newPassword">
+                    </div> -->
+
+    <!--[(ngModel)]="testuser.types" [ngModelOptions]="{standalone: true}"-->

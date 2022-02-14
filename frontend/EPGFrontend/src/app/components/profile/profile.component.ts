@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
       newUserFName: [null, Validators.required],
       newUserLName: [null, Validators.required],
       newUsername: [null],
-      newPassword: [null],
+      //newPassword: [null],
       newEmail: [null, [Validators.required, Validators.email]],
       types: new FormArray([])
     })
@@ -34,15 +34,17 @@ export class ProfileComponent implements OnInit {
 
   onCheckboxChange(e:any) {
     const prefArray: FormArray = this.profileForm.get('types') as FormArray;
-
+    /* Selected */
     if (e.target.checked) {
-
+      // Add a new control in the arrayForm
       prefArray.push(new FormControl(e.target.value));
-
+      /* unselected */
     } else {
+      // find the unselected element
       let i: number = 0;
       prefArray.controls.forEach((item: AbstractControl) => {
         if(item.value == e.target.value){
+          // Remove the unselected element from the arrayForm
           prefArray.removeAt(i);
           return;
         }
