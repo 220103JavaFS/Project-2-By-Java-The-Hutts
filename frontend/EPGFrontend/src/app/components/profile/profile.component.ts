@@ -35,14 +35,14 @@ export class ProfileComponent implements OnInit {
   //   )
   }
 
-  sendUsers(){
-    let u = new users(0, this.newUserFName, this.newUserLName, this.newUsername, this.newEmail, this.newPassword, [])
-    this.us.createUser(u).subscribe(
-      (response: users[]) => {
-        this.newUser = response;
-      }
-    )
-  }
+  // sendUsers(){
+  //   let u = new users(0, this.newUserFName, this.newUserLName, this.newUsername, this.newEmail, this.newPassword, [])
+  //   this.us.createUser(u).subscribe(
+  //     (response: users[]) => {
+  //       this.newUser = response;
+  //     }
+  //   )
+  // }
 }
 
 
