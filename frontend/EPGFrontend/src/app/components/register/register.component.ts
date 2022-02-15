@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { UserserviceService } from 'src/app/services/userservice.service';
+import { UserPreferences } from 'src/app/user-preferences';
 
 @Component({
   selector: 'app-register',
@@ -10,19 +12,13 @@ export class RegisterComponent implements OnInit {
 
   registrationForm!: FormGroup;
   user: any = {};
+  types: any[]=[];
+  preferences = Object.keys(UserPreferences);
   userSubmitted!: boolean;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private userService: UserserviceService) { }
 
   ngOnInit(): void {
-    //   this.registrationForm = new FormGroup({
-    //   userFirstName: new FormControl(null, Validators.required),
-    //   userLastName: new FormControl(null, Validators.required),
-    //   email: new FormControl(null, [Validators.required, Validators.email]),
-    //   username: new FormControl(null, Validators.required),
-    //   password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
-    //   confirmPassword: new FormControl(null, [Validators.required, Validators.maxLength(10)])
-    // }, this.passwordMatchingValidator);
     this.createRegistrationForm();
   }
 
@@ -33,9 +29,31 @@ export class RegisterComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       username: [null, Validators.required],
       password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
-      confirmPassword: [null, [Validators.required, Validators.maxLength(10)]]
+      confirmPassword: [null, [Validators.required, Validators.maxLength(10)]],
+      // types: [new FormArray([]), Validators.required]
     }, {validators: this.passwordMatchingValidator});
   }
+
+  // onCheckboxChange(e:any) {
+  //   const prefArray: FormArray = this.registrationForm.get('types') as FormArray;
+  //   /* Selected */
+  //   if (e.target.checked) {
+  //     // Add a new control in the arrayForm
+  //     prefArray.push(new FormControl(e.target.value));
+  //     /* unselected */
+  //   } else {
+  //     // find the unselected element
+  //     let i: number = 0;
+  //     prefArray.controls.forEach((item: AbstractControl) => {
+  //       if(item.value == e.target.value){
+  //         // Remove the unselected element from the arrayForm
+  //         prefArray.removeAt(i);
+  //         return;
+  //       }
+  //       i++;
+  //     });
+  //   }
+  // }
 
   passwordMatchingValidator(fc: AbstractControl): ValidationErrors | null{
     return fc.get('password')?.value === fc.get('confirmPassword')?.value ? null :
@@ -62,28 +80,23 @@ export class RegisterComponent implements OnInit {
   get confirmPassword(){
     return this.registrationForm.get('confirmPassword') as FormControl;
   }
+
+  get prefTypes() {
+    return this.registrationForm.get('types') as FormControl;
+  }
   
 
   onSubmit() {
     console.log(this.registrationForm.value);
     this.userSubmitted = true;
+    
     if(this.registrationForm.valid){
       this.user = Object.assign(this.user, this.registrationForm.value);
-      localStorage.setItem('Users', JSON.stringify(this.user));
+      this.userService.addUser(this.user)
       this.registrationForm.reset();
       this.userSubmitted = false;
     }
   }
 
-  // addUser(user: any){
-  //   let users =[];
-  //   if (localStorage.getItem('Users')){
-  //     users = JSON.parse(localStorage.getItem('Users') || '{}');
-  //     users = [user, ...users];
-  //   } else {
-  //     users = [user];
-  //   }
-  //   localStorage.setItem('Users', JSON.stringify(users));
-  // }
 
 }
