@@ -69,7 +69,16 @@
             </span>
           </div>
           <br>
-  
+
+          <!-- <p>Please choose your activity preferences:</p>
+          <div class="form-group form-check" *ngFor="let type of preferences">
+            <input class="form-check-input" type="checkbox" [value]="type" (change)="onCheckboxChange($event)" id="type">
+            <label for="type" class="form-check-label">{{type}}</label>
+            <span *ngIf="!prefTypes.valid && (prefTypes.touched || userSubmitted)">
+              please choose at least one activity
+            </span>
+          </div> -->
+          <br>
           <div class="form-group col-12">
             <button type="submit" class="btn btn-primary">Save</button>
             <button type="reset" class="btn btn-secondary ml-2">Cancel</button>
