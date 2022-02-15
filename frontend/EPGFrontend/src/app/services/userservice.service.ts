@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient} from '@angular/common/http';
-import { users } from '../users'
+import { user } from '../models/user'
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +11,8 @@ export class UserserviceService {
 
   constructor(private http: HttpClient) { }
 
-  createUser(thisuser:users):Observable<users>{
-    return this.http.post<users>(this.local,thisuser);
+  createUser(thisuser:user):Observable<user>{
+    return this.http.post<user>(this.local,thisuser);
   }
 
   getUserByID(id:number):Observable<any>{
@@ -27,7 +27,7 @@ export class UserserviceService {
     return this.http.get<string>(this.local + email);
   }
 
-  addUser(user: any){
+  addUser(user: user){
     let users =[];
     if (localStorage.getItem('Users')){
       users = JSON.parse(localStorage.getItem('Users') || '{}');
