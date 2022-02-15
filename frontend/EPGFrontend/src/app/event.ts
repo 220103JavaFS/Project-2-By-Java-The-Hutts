@@ -1,4 +1,4 @@
-import { users } from "./users";
+import { user } from "./models/user";
 
 export interface myevent {
     id:number;

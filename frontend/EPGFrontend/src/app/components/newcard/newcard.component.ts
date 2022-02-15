@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import {myevent} from '../../event';
-import {users} from '../../users';
+import {user} from '../../models/user';
 import { EventserviceService } from 'src/app/services/eventservice.service';
 import { ActivityserviceService } from 'src/app/services/activityservice.service';
 import { Observable, Subscriber } from 'rxjs';

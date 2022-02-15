@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { user } from 'src/app/models/user';
 import { UserserviceService } from 'src/app/services/userservice.service';
 import { UserPreferences } from 'src/app/user-preferences';
 
@@ -11,7 +12,7 @@ import { UserPreferences } from 'src/app/user-preferences';
 export class RegisterComponent implements OnInit {
 
   registrationForm!: FormGroup;
-  user: any = {};
+  user!: user;
   types: any[]=[];
   preferences = Object.keys(UserPreferences);
   userSubmitted!: boolean;
@@ -60,6 +61,29 @@ export class RegisterComponent implements OnInit {
     {notmatched: true};
   }
 
+  onSubmit() {
+    console.log(this.registrationForm.value);
+    this.userSubmitted = true;
+
+    if(this.registrationForm.valid){
+      // this.user = Object.assign(this.user, this.registrationForm.value);
+      this.userService.addUser(this.userData());
+      this.registrationForm.reset();
+      this.userSubmitted = false;
+    }
+  }
+
+
+  userData(): user {
+    return this.user = {
+      firstname: this.userFirstName.value,
+      lastname: this.userLastName.value,
+      username: this.username.value,
+      email: this.email.value,
+      password: this.password.value
+    }
+  }
+
 // Getter methods for all form controls
 
   get userFirstName(){
@@ -84,19 +108,5 @@ export class RegisterComponent implements OnInit {
   get prefTypes() {
     return this.registrationForm.get('types') as FormControl;
   }
-  
-
-  onSubmit() {
-    console.log(this.registrationForm.value);
-    this.userSubmitted = true;
-    
-    if(this.registrationForm.valid){
-      this.user = Object.assign(this.user, this.registrationForm.value);
-      this.userService.addUser(this.user)
-      this.registrationForm.reset();
-      this.userSubmitted = false;
-    }
-  }
-
 
 }

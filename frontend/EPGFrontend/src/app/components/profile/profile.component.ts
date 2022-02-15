@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserserviceService } from 'src/app/services/userservice.service';
 import { UserPreferences } from 'src/app/user-preferences';
-import { users } from 'src/app/users';
+import { user } from 'src/app/models/user';
 
 
 @Component({
