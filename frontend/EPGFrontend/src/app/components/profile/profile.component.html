@@ -9,19 +9,36 @@
                     <div class="form-group col-12">
                         <label class="labels" for="firstName">First Name</label>
                         <input type="text" class="form-control" formControlName="newUserFName" [(ngModel)]="testuser.newUserFName">
+                        <span *ngIf="!newUserFName.valid && (newUserFName.touched || userSubmitted)" class="error-block">
+                            please provide your first name
+                          </span>
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="lastName">Last Name: </label>
                         <input type="text" class="form-control" formControlName="newUserLName" [(ngModel)]="testuser.newUserLName">
+                        <span *ngIf="!newUserLName.valid && (newUserLName.touched || userSubmitted)" class="error-block">
+                            please provide your last name
+                          </span>
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="userName">Username: </label>
                         <input type="text" class="form-control" formControlName="newUsername"  readonly [(ngModel)]="testuser.newUsername">
                     </div>
-                    
+                    <div class="form-group col-12">
+                        <label class="labels" for="password">Password: </label>
+                        <input type="password" class="form-control" formControlName="newPassword"  readonly [(ngModel)]="testuser.newPassword">
+                    </div>
                     <div class="form-group col-12">
                         <label class="labels" for="userEmail">Primary Email: </label>
                         <input type="text" class="form-control" formControlName="newEmail" [(ngModel)]="testuser.newEmail">
+                        <span *ngIf="!newEmail.valid && (newEmail.touched || userSubmitted)" class="error-block">
+                            <span *ngIf="newEmail.hasError('required')">
+                                please provide email
+                            </span>
+                            <span *ngIf="newEmail.hasError('email')">
+                                please provide valid email
+                            </span>
+                        </span>
                     </div>
 
                     <br>
@@ -40,13 +57,6 @@
     </div>
 </div>
 
-
-<!-- user preferences ["education", "recreational", "social", "diy", 
-    "charity", "cooking", "relaxation", "music", "busywork"]
-    password -- hidden
-    <input value={{singleevent.notes}}/> -->
-
-    
     <!--<section class="chekedPreferences">
         <p>You chose:</p>
          {{preferences.value | json}} -->
@@ -56,5 +66,3 @@
                         <label class="labels" for="password">Password: </label>
                         <input type="password" class="form-control" formControlName="newPassword"  readonly [(ngModel)]="testuser.newPassword">
                     </div> -->
-
-    <!--[(ngModel)]="testuser.types" [ngModelOptions]="{standalone: true}"-->

@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   types: any[]=[];
   user: any = {};
   profileForm!: FormGroup;
+  userSubmitted!: boolean;
 
   preferences = Object.keys(UserPreferences);
 
@@ -25,7 +26,7 @@ export class ProfileComponent implements OnInit {
       newUserFName: [null, Validators.required],
       newUserLName: [null, Validators.required],
       newUsername: [null],
-      //newPassword: [null],
+      newPassword: [null],
       newEmail: [null, [Validators.required, Validators.email]],
       types: new FormArray([])
     })
@@ -68,6 +69,24 @@ export class ProfileComponent implements OnInit {
       users=[user];
     }
     localStorage.setItem('Users',JSON.stringify(this.user));
+  }
+
+  // Getter methods for all form controls
+
+  get newUserFName(){
+    return this.profileForm.get('newUserFName') as FormControl;
+  }
+  get newUserLName(){
+    return this.profileForm.get('newUserLName') as FormControl;
+  }
+  get newEmail(){
+    return this.profileForm.get('newEmail') as FormControl;
+  }
+  get newUsername() {
+    return this.profileForm.get('newUsername') as FormControl;
+  }
+  get newPassword(){
+    return this.profileForm.get('newPassword') as FormControl;
   }
 
   testuser = JSON.parse(localStorage.getItem('Users')||'{}');
