@@ -7,7 +7,7 @@ import { CardComponent } from './components/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardlistComponent } from './components/cardlist/cardlist.component';
 import { HttpClientModule } from '@angular/common/http';
-import { EventserviceService } from './services/eventservice.service';
+// import { EventserviceService } from './services/eventservice.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from './components/button/button.component';
@@ -53,7 +53,7 @@ FullCalendarModule.registerPlugins([
     BrowserModule,
     FullCalendarModule
   ],
-  providers: [EventserviceService, ActivityserviceService],
+  providers: [ActivityserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import {myevent} from '../../event';
 import {users} from '../../users';
-import { EventserviceService } from 'src/app/services/eventservice.service';
 import { ActivityserviceService } from 'src/app/services/activityservice.service';
 import { Observable, Subscriber } from 'rxjs';
 import { eventactivity } from 'src/app/eventactivity';
-import { toChildArray } from 'preact';
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
@@ -15,13 +12,15 @@ import { toChildArray } from 'preact';
 })
 export class NewcardComponent implements OnInit {
   
-  //data needed for card and suggested activity
+  //variables needed for card and suggested activity
   name!:string;
   date!:string;
-  notes!:string;
+  description!:string;
   status:boolean = false;
   startTime!:string;
   endTime!:string;
+
+  //variables for rendering random date
   dd!:string;
   thisdate:Date = new Date();
   day:number = this.thisdate.getDate();
@@ -33,7 +32,7 @@ export class NewcardComponent implements OnInit {
 
  //send myevent type to bored api
  @Output()
-   onSuggestEvent: EventEmitter<myevent> = new EventEmitter;
+   onSuggestEvent: EventEmitter<eventactivity> = new EventEmitter;
 
 
   //function to randomize the date for suggested activity
@@ -51,7 +50,7 @@ export class NewcardComponent implements OnInit {
   suggestEvent(){
     this.service1.getActivity().subscribe((eventactivity) =>(this.event = eventactivity))
     this.name = this.event.type;
-    this.notes = this.event.activity;
+    this.description = this.event.activity;
     this.dd = String(this.randomizeDay(this.day,30)).padStart(2,'0');
     this.date = "" + this.yyyy + "-" + this.mm + "-" + this.dd
   }

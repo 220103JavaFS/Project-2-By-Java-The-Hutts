@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {EVENTS} from '../../mock-event'
-import { myevent } from 'src/app/event';
 import { ActivityserviceService } from 'src/app/services/activityservice.service';
-import { EventserviceService } from 'src/app/services/eventservice.service';
 import { eventactivity } from 'src/app/eventactivity';
 @Component({
   selector: 'app-cardlist',
@@ -12,7 +10,7 @@ import { eventactivity } from 'src/app/eventactivity';
 export class CardlistComponent implements OnInit {
   
   //events variable will be set to event service get request
-  events:myevent[] = EVENTS;
+  events:eventactivity[] = EVENTS;
   toggleNewEvent:boolean = false;
 
   //boolean for hiding a card
@@ -22,10 +20,10 @@ export class CardlistComponent implements OnInit {
   suggestActivity!:eventactivity;
 
   //array to display users events
-  eventlist!:myevent[]
+  eventlist!:eventactivity[]
 
   //constructor with db connection
-  constructor(private eventService:EventserviceService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

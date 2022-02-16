@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {EVENTS} from '../../mock-event';
-import {myevent} from '../../event'
+import { eventactivity } from 'src/app/eventactivity';
 
 @Component({
   selector: 'app-card',
@@ -11,7 +11,7 @@ export class CardComponent implements OnInit {
   
   //Event variable to display this cards details
   @Input()
-    singleevent!:myevent;
+    singleevent!:eventactivity;
   
   //Send boolean event to parent component on click
   @Output()
