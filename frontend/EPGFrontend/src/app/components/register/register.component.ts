@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
       username: [null, Validators.required],
       password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
       confirmPassword: [null, [Validators.required, Validators.maxLength(10)]],
-      userPreferences: []
+      userPreferences: [false, Validators.requiredTrue]
     }, {validators: this.passwordMatchingValidator});
   }
 
