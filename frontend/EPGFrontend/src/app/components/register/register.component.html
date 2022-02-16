@@ -70,14 +70,52 @@
           </div>
           <br>
 
-          <!-- <p>Please choose your activity preferences:</p>
-          <div class="form-group form-check" *ngFor="let type of preferences">
-            <input class="form-check-input" type="checkbox" [value]="type" (change)="onCheckboxChange($event)" id="type">
-            <label for="type" class="form-check-label">{{type}}</label>
-            <span *ngIf="!prefTypes.valid && (prefTypes.touched || userSubmitted)">
-              please choose at least one activity
-            </span>
-          </div> -->
+          <p>Please choose your activity preferences:</p>
+          <div class="form-group form-check">
+              <label for="education">Education</label>
+              <br>
+              <input type="checkbox" formControlName="userPreferences"  id="education" [(ngModel)]="education">
+          </div>
+          <div>
+              <label for="recreational">Recreational</label>
+              <br>
+              <input type="checkbox" formControlName="userPreferences"  id="recreational" [(ngModel)]="recreational">
+          </div>
+          <div>    
+              <label for="social">Social</label>
+              <br>
+              <input type="checkbox" formControlName="userPreferences" id="social" [(ngModel)]="social">
+          </div>
+          <div>
+              <label for="diy">DIY</label>
+              <br>
+              <input type="checkbox" formControlName="userPreferences" id="diy" [(ngModel)]="diy">
+          </div>
+          <div>
+              <label for="charity">Charity</label>
+              <br>
+              <input type="checkbox" formControlName="userPreferences" id="charity" [(ngModel)]="charity">
+          </div>
+          <div>
+              <label for="cooking">Cooking</label>
+              <br>
+              <input type="checkbox" formControlName="userPreferences" id="cooking" [(ngModel)]="cooking">
+          </div>
+          <div>
+              <label for="relaxation">Relaxation</label>
+              <br>
+              <input type="checkbox" formControlName="userPreferences" id="relaxation" [(ngModel)]="relaxation">
+          </div>
+          <div>
+              <label for="music">Music</label>
+              <br>
+              <input type="checkbox" formControlName="userPreferences" id="music" [(ngModel)]="music">
+          </div>
+          <div>
+              <label for="busywork">Busywork</label>
+              <br>
+              <input type="checkbox" formControlName="userPreferences" id="busywork" [(ngModel)]="busywork">
+          </div>
           <br>
           <div class="form-group col-12">
             <button type="submit" class="btn btn-primary">Save</button>
