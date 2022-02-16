@@ -15,11 +15,17 @@
           <li class="nav-item">
             <a class="nav-link active" routerLinkActive="active" routerLink="calendar" id="calendar">Calendar</a>
           </li>
+        </ul>
+        <ul class="navbar-nav ms-auto" >
           <li class="nav-item-right">
-            <a class="nav-link" routerLinkActive="active" routerLink="register" id="register">Register</a>
+            <a *ngIf = "!loggedIn()" class="nav-link" routerLinkActive="active" routerLink="register" id="register">Register</a>
+          </li>
+
+          <li class="nav-item-right">
+            <a *ngIf = "!loggedIn()" class="nav-link" routerLinkActive="active" routerLink="login" id="login">Login</a>
           </li>
           <li class="nav-item-right">
-            <a class="nav-link" routerLinkActive="active" routerLink="login" id="login">Login</a>
+            <a *ngIf = "loggedIn()" class="nav-link" (click)="onLogout()"  id="logout">Logout</a>
           </li>
         </ul>
       </div>

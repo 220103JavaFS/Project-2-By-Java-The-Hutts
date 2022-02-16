@@ -1,31 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient} from '@angular/common/http';
-import { users } from '../users'
+import { user } from '../models/user'
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
 
-  private local = 'https://localhost:8083/data/users/'
+  private local = 'https://localhost:6000/users/'
 
   constructor(private http: HttpClient) { }
 
-  createUser(thisuser:users):Observable<users[]>{
-    return this.http.post<users[]>(this.local,thisuser);
+  createUser(thisuser:user):Observable<user>{
+    return this.http.post<user>(this.local,thisuser);
   }
 
-  getUserByID(id:number){
-    return this.http.get<users>(this.local + id);
+  getUserByID(id:number):Observable<any>{
+    return this.http.get<number>(this.local + id);
   }
 
-  getUserByUsername(name:users)/*:Observable<any>*/{
-    return this.http.get<users>(this.local + name);
+  getUserByUsername(name:string):Observable<any>{
+    return this.http.get<string>(this.local + name);
   }
 
-  // getUserByEmail(email:users):Observable<any>{
-  //   return this.http.get<users>(this.local + email);
-  // }
+  getUserByEmail(email:string):Observable<any>{
+    return this.http.get<string>(this.local + email);
+  }
 
+  addUser(user: user){
+    let users =[];
+    if (localStorage.getItem('Users')){
+      users = JSON.parse(localStorage.getItem('Users') || '{}');
+      users = [user, ...users];
+    } else {
+      users = [user];
+    }
+    localStorage.setItem('Users', JSON.stringify(users));
+  }
   
 }
