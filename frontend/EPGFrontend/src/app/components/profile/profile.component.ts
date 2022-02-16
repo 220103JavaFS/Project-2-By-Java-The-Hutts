@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { user } from 'src/app/models/user';
 import { UserserviceService } from 'src/app/services/userservice.service';
 import { UserPreferences } from 'src/app/user-preferences';
-import { user } from 'src/app/models/user';
+// import { users } from 'src/app/users';
 
 
 @Component({
@@ -15,10 +16,17 @@ export class ProfileComponent implements OnInit {
   user: any = {};
   profileForm!: FormGroup;
   userSubmitted!: boolean;
+  education:string='';
+  recreational:string='';
+  social:string='';
+  diy:string='';
+  charity:string='';
+  cooking:string='';
+  relaxation:string='';
+  music:string='';
+  busywork:string='';
 
-  preferences = Object.keys(UserPreferences);
-
-  constructor(private formBuilder: FormBuilder){
+  constructor(private formBuilder: FormBuilder, private userService: UserserviceService){
   }
 
   ngOnInit(): void {
@@ -28,13 +36,13 @@ export class ProfileComponent implements OnInit {
       newUsername: [null],
       newPassword: [null],
       newEmail: [null, [Validators.required, Validators.email]],
-      types: new FormArray([])
+      userPreferences: []
     })
 
   }
 
   onCheckboxChange(e:any) {
-    const prefArray: FormArray = this.profileForm.get('types') as FormArray;
+    const prefArray: FormArray = this.profileForm.get('userPreferences') as FormArray;
     /* Selected */
     if (e.target.checked) {
       // Add a new control in the arrayForm
@@ -57,18 +65,32 @@ export class ProfileComponent implements OnInit {
   onSubmit() {
     console.log(this.profileForm.value);
     this.user = Object.assign(this.user, this.profileForm.value);
-    this.addUser(this.user);
+    Object.keys(this.profileForm.controls).forEach(key => {
+      this.profileForm.controls[key].markAsDirty();
+    });
+    this.userService.addUser(this.user);
+
   }
 
-  addUser(user: any){
-    let users = [];
-    if (localStorage.getItem('Users')){
-      users= JSON.parse(localStorage.getItem('Users') || '{}');
-      users=[user, ...users];
-    } else {
-      users=[user];
+  userData(): user {
+    return this.user = {
+      firstname: this.newUserFName.value,
+      lastname: this.newUserLName.value,
+      username: this.newUsername.value,
+      email: this.newEmail.value,
+      password: this.newPassword.value,
+      userPreferences: [
+        this.education,
+        this.recreational,
+        this.social,
+        this.diy,
+        this.charity,
+        this.cooking,
+        this.relaxation,
+        this.music,
+        this.busywork
+      ]
     }
-    localStorage.setItem('Users',JSON.stringify(this.user));
   }
 
   // Getter methods for all form controls
@@ -90,6 +112,7 @@ export class ProfileComponent implements OnInit {
   }
 
   testuser = JSON.parse(localStorage.getItem('Users')||'{}');
+
 }
 
 
