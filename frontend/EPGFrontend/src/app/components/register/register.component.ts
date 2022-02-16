@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { user } from 'src/app/models/user';
 import { UserserviceService } from 'src/app/services/userservice.service';
-import { UserPreferences } from 'src/app/user-preferences';
+
 
 @Component({
   selector: 'app-register',
@@ -13,9 +13,18 @@ export class RegisterComponent implements OnInit {
 
   registrationForm!: FormGroup;
   user!: user;
-  types: any[]=[];
-  preferences = Object.keys(UserPreferences);
   userSubmitted!: boolean;
+  public userPreferences: Array<UserPreferences> = [
+    {type: 'EDUCATION', value: 'Education' },
+    {type: 'RECEATIOANL', value: 'Recreational'},
+    {type: 'SOCIAL', value: 'Social'},
+    {type: 'DIY', value: 'DIY'},
+    {type: 'CHARITY', value: 'Charity'},
+    {type: 'COOKING', value: 'Cookding'},
+    {type: 'RELAXATION', value: 'Relaxation'},
+    {type: 'MUSIC', value: 'Music'},
+    {type: 'BUSYWORK', value: 'Busywork'}
+  ];
 
   constructor(private fb: FormBuilder, private userService: UserserviceService) { }
 
@@ -80,7 +89,8 @@ export class RegisterComponent implements OnInit {
       lastname: this.userLastName.value,
       username: this.username.value,
       email: this.email.value,
-      password: this.password.value
+      password: this.password.value,
+      userPreferences: this.userPreferences.values
     }
   }
 
