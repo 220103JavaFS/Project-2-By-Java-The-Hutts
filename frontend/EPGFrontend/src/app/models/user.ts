@@ -8,7 +8,6 @@ export interface user {
     username:string;
     email:string;
     password:string;
-    // userPreferences:Array<UserPreferences>;
-
+    userPreferences:Array<String>;
 
 }
