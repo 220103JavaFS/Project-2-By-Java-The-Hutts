@@ -14,15 +14,6 @@ export class RegisterComponent implements OnInit {
   registrationForm!: FormGroup;
   user!: user;
   userSubmitted!: boolean;
-  education:string='';
-  recreational:string='';
-  social:string='';
-  diy:string='';
-  charity:string='';
-  cooking:string='';
-  relaxation:string='';
-  music:string='';
-  busywork:string='';
 
   constructor(private fb: FormBuilder, private userService: UserserviceService) { }
 
@@ -38,30 +29,9 @@ export class RegisterComponent implements OnInit {
       username: [null, Validators.required],
       password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
       confirmPassword: [null, [Validators.required, Validators.maxLength(10)]],
-      userPreferences: [false, Validators.requiredTrue]
     }, {validators: this.passwordMatchingValidator});
   }
 
-  onCheckboxChange(e:any) {
-    const prefArray: FormArray = this.registrationForm.get('userPreferences') as FormArray;
-    /* Selected */
-    if (e.target.checked) {
-      // Add a new control in the arrayForm
-      prefArray.push(new FormControl(e.target.value));
-      /* unselected */
-    } else {
-      // find the unselected element
-      let i: number = 0;
-      prefArray.controls.forEach((item: AbstractControl) => {
-        if(item.value == e.target.value){
-          // Remove the unselected element from the arrayForm
-          prefArray.removeAt(i);
-          return;
-        }
-        i++;
-      });
-    }
-  }
 
   passwordMatchingValidator(fc: AbstractControl): ValidationErrors | null{
     return fc.get('password')?.value === fc.get('confirmPassword')?.value ? null :
@@ -88,17 +58,6 @@ export class RegisterComponent implements OnInit {
       username: this.username.value,
       email: this.email.value,
       password: this.password.value,
-      userPreferences: [
-        this.education,
-        this.recreational,
-        this.social,
-        this.diy,
-        this.charity,
-        this.cooking,
-        this.relaxation,
-        this.music,
-        this.busywork
-      ]
     }
   }
 
@@ -121,10 +80,6 @@ export class RegisterComponent implements OnInit {
   }
   get confirmPassword(){
     return this.registrationForm.get('confirmPassword') as FormControl;
-  }
-
-  get prefTypes() {
-    return this.registrationForm.get('types') as FormControl;
   }
 
 }
