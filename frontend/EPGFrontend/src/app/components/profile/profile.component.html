@@ -8,29 +8,29 @@
                 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
                     <div class="form-group col-12">
                         <label class="labels" for="firstName">First Name</label>
-                        <input type="text" class="form-control" formControlName="newUserFName" [(ngModel)]="testuser.newUserFName">
+                        <input type="text" class="form-control" formControlName="newUserFName">
                         <span *ngIf="!newUserFName.valid && (newUserFName.touched || userSubmitted)" class="error-block">
                             please provide your first name
                           </span>
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="lastName">Last Name: </label>
-                        <input type="text" class="form-control" formControlName="newUserLName" [(ngModel)]="testuser.newUserLName">
+                        <input type="text" class="form-control" formControlName="newUserLName">
                         <span *ngIf="!newUserLName.valid && (newUserLName.touched || userSubmitted)" class="error-block">
                             please provide your last name
                           </span>
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="userName">Username: </label>
-                        <input type="text" class="form-control" formControlName="newUsername"  readonly [(ngModel)]="testuser.newUsername">
+                        <input type="text" class="form-control" formControlName="newUsername"  readonly>
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="password">Password: </label>
-                        <input type="password" class="form-control" formControlName="newPassword"  readonly [(ngModel)]="testuser.newPassword">
+                        <input type="password" class="form-control" formControlName="newPassword"  readonly>
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="userEmail">Primary Email: </label>
-                        <input type="text" class="form-control" formControlName="newEmail" [(ngModel)]="testuser.newEmail">
+                        <input type="text" class="form-control" formControlName="newEmail">
                         <span *ngIf="!newEmail.valid && (newEmail.touched || userSubmitted)" class="error-block">
                             <span *ngIf="newEmail.hasError('required')">
                                 please provide email
