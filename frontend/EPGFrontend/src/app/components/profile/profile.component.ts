@@ -12,8 +12,7 @@ import { UserPreferences } from 'src/app/user-preferences';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  types: any[]=[];
-  user: any = {};
+  user!: user;
   profileForm!: FormGroup;
   userSubmitted!: boolean;
   education:string='';
@@ -63,13 +62,11 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit() {
+
     console.log(this.profileForm.value);
     this.user = Object.assign(this.user, this.profileForm.value);
-    Object.keys(this.profileForm.controls).forEach(key => {
-      this.profileForm.controls[key].markAsDirty();
-    });
-    this.userService.addUser(this.user);
-
+    this.userService.addUser(this.userData());
+    this.profileForm.reset();
   }
 
   userData(): user {
@@ -109,6 +106,9 @@ export class ProfileComponent implements OnInit {
   }
   get newPassword(){
     return this.profileForm.get('newPassword') as FormControl;
+  }
+  get prefTypes() {
+    return this.profileForm.get('userPreferences') as FormControl;
   }
 
   testuser = JSON.parse(localStorage.getItem('Users')||'{}');

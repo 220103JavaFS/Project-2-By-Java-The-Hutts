@@ -10,5 +10,4 @@ export interface user {
     password:string;
     userPreferences:Array<String>;
 
-
 }
