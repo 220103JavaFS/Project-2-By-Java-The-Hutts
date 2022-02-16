@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { user } from 'src/app/models/user';
 import { UserserviceService } from 'src/app/services/userservice.service';
-import { UserPreferences } from 'src/app/user-preferences';
-// import { users } from 'src/app/users';
+
+
 
 
 @Component({
@@ -62,11 +62,14 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit() {
-
     console.log(this.profileForm.value);
-    this.user = Object.assign(this.user, this.profileForm.value);
-    this.userService.addUser(this.userData());
-    this.profileForm.reset();
+    this.userSubmitted = true;
+    if(this.profileForm.valid){
+      //this.user = Object.assign(this.user, this.profileForm.value);
+      this.userService.addUser(this.userData());
+      this.profileForm.reset();
+      this.userSubmitted = false;
+    }
   }
 
   userData(): user {
@@ -110,8 +113,6 @@ export class ProfileComponent implements OnInit {
   get prefTypes() {
     return this.profileForm.get('userPreferences') as FormControl;
   }
-
-  testuser = JSON.parse(localStorage.getItem('Users')||'{}');
 
 }
 
