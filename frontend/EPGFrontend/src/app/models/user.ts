@@ -8,5 +8,5 @@ export class user {
     public username!:string;
     public email!:string;
     public password!:string;
-    public preferences!:[string];
+    public userPreferences!:[string];
 }
