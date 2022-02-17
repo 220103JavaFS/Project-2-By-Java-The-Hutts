@@ -4,11 +4,11 @@ EVENT PLANNER & GENERATOR (EPG)
 
 EPG will allow users to schedule and generate events according to user preference. Users are able to create and update their calendar with events. If user has no event, the application can recommend activity based on user’s preference, time, and accessibility.
 
-Technologies Used
+Technologies Used <br>
 
-Angular - version 12.2. 
-Java - version 1.8. 
-AWS - relational database system. 
+Angular - version 12.2. <br>
+Java - version 1.8. <br>
+AWS - relational database system. <br>
 
 
 Features
