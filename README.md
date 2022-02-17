@@ -15,14 +15,14 @@ Features
 
 Stable features:
 
-Create profile with your own event preferences
-Recieve suggested events
-Calendar
+Create profile with your own event preferences <br>
+Recieve suggested events <br>
+Calendar <br>
 
 To-do list:
 
-Generated events show in calendar
-Invite other users to an event
+Generated events show in calendar <br>
+Invite other users to an event <br>
 
 Unix backend clone command :<sudo git clone https://github.com/220103JavaFS/Project-2-By-Java-The-Hutts-Backend.git>
 Windows backend clone command:<git clone https://github.com/220103JavaFS/Project-2-By-Java-The-Hutts-Backend.git>
