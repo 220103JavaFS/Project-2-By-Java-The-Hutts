@@ -6,9 +6,11 @@ EPG will allow users to schedule and generate events according to user preferenc
 
 Technologies Used
 
-Angular - version 12.2
-Java - version 1.8
-AWS - relational database system
+Angular - version 12.2. 
+Java - version 1.8. 
+AWS - relational database system. 
+
+
 Features
 
 Stable features:
