@@ -6,10 +6,10 @@
         Title:  <input type="text" [(ngModel)]="name" /><br>
         Date:   <input type="date" [(ngModel)]="date"/><br>
         Time:   <input type="time" [(ngModel)]="startTime"/><br>
-        <textarea type="textarea" rows="6" cols="25" [(ngModel)]="notes" placeholder="Additional notes"></textarea>
+        <textarea type="textarea" rows="6" cols="25" [(ngModel)]="description" placeholder="Additional notes"></textarea>
   </div>
     <div class="card-footer">
-      <app-button color="dodgerBlue" text="Suggestions" (click)="suggestEvent()"></app-button>
-      <app-button color="dodgerBlue" text="Submit" (click)="submitEvent()"></app-button>
+      <app-button text="Suggestions" (click)="suggestEvent()"></app-button>
+      <app-button text="Submit" (click)="submitEvent()"></app-button>
     </div>
 </div>

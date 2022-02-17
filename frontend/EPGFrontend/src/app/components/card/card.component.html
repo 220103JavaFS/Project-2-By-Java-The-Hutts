@@ -1,7 +1,7 @@
 <div class="card text-center" style="width: 18rem;">
   <div class="card-header card-title">
     <button type="button" class="btn-close" (click)="removeClick(singleevent.id)"></button>
-    <h3>{{singleevent.name}}</h3></div>
+    <h3>{{singleevent.type}}</h3></div>
     <div class="card-body">
       <h5 class="card-text">Date: {{singleevent.date | date : 'shortDate' }}</h5>
       <h5 class="card-time"> Start time: {{singleevent.startTime}}</h5>
@@ -9,10 +9,10 @@
     </div>
     <div class="card-body text-center">
       <div>Notes</div>
-      <textarea id="notes" rows="3" cols="25" >{{singleevent.notes}}</textarea>
+      <textarea id="notes" rows="3" cols="25" >{{singleevent.activity}}</textarea>
   </div>
     <div class="card-footer">
-      <app-button color="dodgerBlue" text="Invite Others"></app-button>
+      <app-button text="Invite Others"></app-button>
     </div>
 </div>
 

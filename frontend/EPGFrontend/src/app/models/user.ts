@@ -1,11 +1,12 @@
-import { UserPreferences } from '../user-preferences';
+import { UserPreferences } from './user-preferences';
 
-export interface user {
+export class user {
     //user variables go here
     // userId:number;
-    firstname:string;
-    lastname:string;
-    username:string;
-    email:string;
-    password:string;
+    public firstname!:string;
+    public lastname!:string;
+    public username!:string;
+    public email!:string;
+    public password!:string;
+    public preferences!:[string];
 }

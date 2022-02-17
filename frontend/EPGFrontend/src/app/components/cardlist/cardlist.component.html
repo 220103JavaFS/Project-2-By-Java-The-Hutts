@@ -1,4 +1,6 @@
-<app-button (click) = "toggleEvent()" text="Add New Event" color="dodgerBlue"></app-button>
+<div class="container">
+<app-button (click) = "toggleEvent()" text="Add New Event" ></app-button>
+</div>
 <div class="container" [hidden]="!toggleNewEvent">
     <app-newcard></app-newcard>
 </div>

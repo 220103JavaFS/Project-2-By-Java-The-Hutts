@@ -1,0 +1,11 @@
+
+    <form>
+        <div class="container">
+      <div class="row"> <label>Preferences: </label></div><br>
+      <div class="form-group form-check" *ngFor="let val of preferenceList">
+        <input type="checkbox" class="form-check-input" name="{{val.name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="val.selected">
+        <label class="form-check-label" for="exampleCheck1">{{val.name}}</label>
+      </div>
+      <button type="submit" class="btn btn-primary" >Submit</button>
+    </div>
+    </form>
