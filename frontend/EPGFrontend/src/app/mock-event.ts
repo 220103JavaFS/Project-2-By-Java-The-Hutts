@@ -1,13 +1,12 @@
-import {eventactivity} from './eventactivity'
-import { UserPreferences } from './user-preferences'
+import {eventactivity} from './models/eventactivity'
 export const EVENTS:eventactivity[] = [
     {
         id:1,
         date:new Date('December 17, 1995 03:24:00'),
         createdByID:1,
+        type:"Busywork",
         activity:"Laundry",
         status:true,
-        type: UserPreferences.Busywork,
         startTime: ""+ new Date().getHours() + ":" + new Date().getMinutes(),
         endTime:"",
         price:1.25,
@@ -19,10 +18,10 @@ export const EVENTS:eventactivity[] = [
         id:2,
         date:new Date('December 17, 1995 03:24:00'),
         createdByID:1,
+        type:"Busywork",
         activity:"Cooking Dinner",
         status:false,
-        type:UserPreferences.Cooking,
-        startTime: ""+ new Date().getHours() + ":" + new Date().getMinutes(),
+        startTime: "",
         endTime:"",
         price:1.25,
         accessibility: .1,

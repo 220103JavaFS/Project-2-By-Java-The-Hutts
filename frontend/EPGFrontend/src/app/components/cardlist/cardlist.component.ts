@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {EVENTS} from '../../mock-event'
 import { ActivityserviceService } from 'src/app/services/activityservice.service';
-import { eventactivity } from 'src/app/eventactivity';
+import { eventactivity } from 'src/app/models/eventactivity';
 @Component({
   selector: 'app-cardlist',
   templateUrl: './cardlist.component.html',

@@ -61,37 +61,27 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    console.log(this.profileForm.value);
-    this.userSubmitted = true;
-    if(this.profileForm.valid){
-      //this.user = Object.assign(this.user, this.profileForm.value);
-      this.userService.addUser(this.userData());
-      this.profileForm.reset();
-      this.userSubmitted = false;
-    }
-  }
+  // onSubmit() {
+  //   console.log(this.profileForm.value);
+  //   this.userSubmitted = true;
+  //   if(this.profileForm.valid){
+  //     //this.user = Object.assign(this.user, this.profileForm.value);
+  //     this.userService.addUser(this.userData());
+  //     this.profileForm.reset();
+  //     this.userSubmitted = false;
+  //   }
+  // }
 
-  userData(): user {
-    return this.user = {
-      firstname: this.newUserFName.value,
-      lastname: this.newUserLName.value,
-      username: this.newUsername.value,
-      email: this.newEmail.value,
-      password: this.newPassword.value,
-      userPreferences: [
-        this.education,
-        this.recreational,
-        this.social,
-        this.diy,
-        this.charity,
-        this.cooking,
-        this.relaxation,
-        this.music,
-        this.busywork
-      ]
-    }
-  }
+  // userData(): user {
+  //   return this.user = {
+  //     firstname: this.newUserFName.value,
+  //     lastname: this.newUserLName.value,
+  //     username: this.newUsername.value,
+  //     email: this.newEmail.value,
+  //     password: this.newPassword.value,
+  //     preferences:this.
+  //   }
+  // }
 
   // Getter methods for all form controls
 

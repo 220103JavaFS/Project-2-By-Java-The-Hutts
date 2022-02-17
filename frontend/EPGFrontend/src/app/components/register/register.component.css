@@ -1,7 +1,17 @@
-.ng-invalid.ng-touched {
+/* .ng-invalid.ng-touched {
     border-color: red;
 }
 
 .error-block {
     color: red;
+} */
+
+button{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+container{
+    margin: auto;
+
 }

@@ -7,7 +7,6 @@ import { CardComponent } from './components/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardlistComponent } from './components/cardlist/cardlist.component';
 import { HttpClientModule } from '@angular/common/http';
-// import { EventserviceService } from './services/eventservice.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from './components/button/button.component';
@@ -23,6 +22,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth.service';
+import { PreferencesComponent } from './components/preferences/preferences.component';
 
 FullCalendarModule.registerPlugins([ 
   dayGridPlugin,
@@ -43,7 +43,8 @@ FullCalendarModule.registerPlugins([
     NewcardComponent,
     RegisterComponent,
     LandingpageComponent,
-    LoginComponent
+    LoginComponent,
+    PreferencesComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +55,7 @@ FullCalendarModule.registerPlugins([
     BrowserModule,
     FullCalendarModule
   ],
-  providers: [EventserviceService, ActivityserviceService, AuthService],
+  providers: [ActivityserviceService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

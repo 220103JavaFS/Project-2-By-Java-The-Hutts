@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {EVENTS} from '../../mock-event';
-import { eventactivity } from 'src/app/eventactivity';
+import { eventactivity } from 'src/app/models/eventactivity';
 
 @Component({
   selector: 'app-card',
