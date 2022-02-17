@@ -24,8 +24,8 @@ To-do list:
 Generated events show in calendar <br>
 Invite other users to an event <br>
 
-Unix backend clone command :<sudo git clone https://github.com/220103JavaFS/Project-2-By-Java-The-Hutts-Backend.git>
-Windows backend clone command:<git clone https://github.com/220103JavaFS/Project-2-By-Java-The-Hutts-Backend.git>
+Unix backend clone command :<sudo git clone https://github.com/220103JavaFS/Project-2-By-Java-The-Hutts-Backend.git> <br>
+Windows backend clone command:<git clone https://github.com/220103JavaFS/Project-2-By-Java-The-Hutts-Backend.git> <br>
 
-Unix frontend clone command :<sudo git https://github.com/220103JavaFS/Project-2-By-Java-The-Hutts.git>
-Windows frontend clone command :<git clone https://github.com/220103JavaFS/Project-2-By-Java-The-Hutts.git>
+Unix frontend clone command :<sudo git https://github.com/220103JavaFS/Project-2-By-Java-The-Hutts.git> <br>
+Windows frontend clone command :<git clone https://github.com/220103JavaFS/Project-2-By-Java-The-Hutts.git> <br>
