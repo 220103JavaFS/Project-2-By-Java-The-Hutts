@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, JsonpClientBackend} from '@angular/common/http';
 import { user } from '../models/user'
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,6 @@ export class UserserviceService {
   constructor(private http: HttpClient) { }
 
   createUser(thisuser:user):Observable<user>{
-    console.log(thisuser)
     return this.http.post<user>('http://localhost:8083/data/users/registration',thisuser);
   }
 

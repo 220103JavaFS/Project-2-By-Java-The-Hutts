@@ -24,20 +24,11 @@ getPreference(){
   {id:7,name:"music",selected:false},
   {id:8,name:"busywork",selected:false}
   ]}
-  
-// getUser(){
-//   this.newUser.firstname= ""
-//   this.newUser.lastname="";
-//   this.newUser.email="";
-//   this.newUser.username="";
-//   this.newUser.password="";
-//   this.newUser.preferences = [];
-// }
-//databinding vars for user
+
 firstname!:string;
 lastname!:string;
 email!:string;
-username!:string
+username!:string;
 password!:string;
 preferenceList!:preference[];
 
@@ -60,18 +51,16 @@ let newUser:user={
   email: this.email,
   password: this.password,
   username:this.username,
-  preferences:[""]
+  userPreferences:[""]
 }
 
 for(let i=0; i<this.preferenceList.length;i++){
   if(this.preferenceList[i].selected === true){
-    newUser.preferences.push(this.preferenceList[i].name);
+    newUser.userPreferences.push(this.preferenceList[i].name);
   }
 }
-console.log(this.firstname)
-console.log(this.email)
-console.log(this.preferenceList)
-console.log(newUser.preferences)
+
+console.log(newUser)
 this.service.createUser(newUser).subscribe((user)=>(newUser = user));
 }
  

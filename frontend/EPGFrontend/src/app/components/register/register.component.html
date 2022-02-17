@@ -19,7 +19,7 @@
   <div class="form-group">
     <label for="password">Password</label>
     <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone:true}">
-  </div><br><br><div>Select the types of activities you like:</div> <br>
+  </div><br><br><div>Select the type of activities you like:</div> <br>
   <div class="form-group">
   <div><label>{{preferenceList[0].name}}</label></div>
   <div><input type="checkbox"  name="{{preferenceList[0].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[0].selected" [ngModelOptions]="{standalone:true}"></div> 
