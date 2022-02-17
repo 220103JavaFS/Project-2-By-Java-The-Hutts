@@ -17,6 +17,7 @@ Calendar <br>
 Generated events show in calendar <br>
 Invite other users to an event <br>
 
+# Clone this project
 Unix backend clone command :<sudo git clone https://github.com/220103JavaFS/Project-2-By-Java-The-Hutts-Backend.git> <br>
 Windows backend clone command:<git clone https://github.com/220103JavaFS/Project-2-By-Java-The-Hutts-Backend.git> <br>
 
