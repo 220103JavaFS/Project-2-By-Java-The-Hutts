@@ -7,13 +7,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLinkActive="active" routerLink="profile" id="profile">Profile</a>
+            <a *ngIf = "loggedIn()" class="nav-link active" aria-current="page" routerLinkActive="active" routerLink="profile" id="profile">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="MyEvents">Events</a>
+            <a *ngIf = "loggedIn()" class="nav-link active" href="MyEvents">Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" routerLinkActive="active" routerLink="calendar" id="calendar">Calendar</a>
+            <a *ngIf = "loggedIn()" class="nav-link active" routerLinkActive="active" routerLink="calendar" id="calendar">Calendar</a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto" >
