@@ -4,6 +4,7 @@ import {user} from '../../models/user';
 import { ActivityserviceService } from 'src/app/services/activityservice.service';
 import { Observable, Subscriber } from 'rxjs';
 import { eventactivity } from 'src/app/models/eventactivity';
+import { EventserviceService } from 'src/app/services/eventservice.service';
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
@@ -43,7 +44,7 @@ export class NewcardComponent implements OnInit {
     return Math.floor(Math.random() * (max - min +1)+min);
   }
  
-  constructor(private service1:ActivityserviceService) {}
+  constructor(private service1:ActivityserviceService, private service:EventserviceService) {}
 
   ngOnInit(): void {}
 
@@ -58,5 +59,17 @@ export class NewcardComponent implements OnInit {
   
   submitEvent(){
     //call event service and post to db
+    let newcard:myevent ={
+      name:this.name,
+      date:this.date,
+      notes:this.description,
+      status:true,
+      startTime:this.startTime,
+      endTime:"",
+
+    }
+    console.log(newcard);
+    this.service.createEvent(newcard);
   }
+  
 }

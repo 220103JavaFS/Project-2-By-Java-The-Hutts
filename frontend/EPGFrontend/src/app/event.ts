@@ -1,9 +1,9 @@
 import { user } from "./models/user";
 
 export interface myevent {
-    id:number;
+    //id:number;
     name:string;
-    date:Date;
+    date:string;
     notes:string;
     status:boolean//completed or incompleted //cannot represent who is attending what;
     startTime:string;
