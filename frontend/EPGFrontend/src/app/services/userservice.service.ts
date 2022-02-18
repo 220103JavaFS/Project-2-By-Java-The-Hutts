@@ -13,7 +13,7 @@ export class UserserviceService {
   constructor(private http: HttpClient) { }
 
   createUser(thisuser:user):Observable<user>{
-    return this.http.post<user>('http://localhost:8083/data/users/registration',thisuser);
+    return this.http.post<user>(this.local2 +'/registration',thisuser);
   }
 
   getUserByID(id:number):Observable<any>{
@@ -26,17 +26,6 @@ export class UserserviceService {
 
   getUserByEmail(email:string):Observable<any>{
     return this.http.get<string>(this.local + email);
-  }
-
-  addUser(user: user){
-    let users =[];
-    if (localStorage.getItem('Users')){
-      users = JSON.parse(localStorage.getItem('Users') || '{}');
-      users = [user, ...users];
-    } else {
-      users = [user];
-    }
-    localStorage.setItem('Users', JSON.stringify(users));
   }
   
 }
