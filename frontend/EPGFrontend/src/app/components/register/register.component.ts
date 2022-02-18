@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { user } from 'src/app/models/user';
 import { preference } from 'src/app/models/preference';
 import { UserserviceService } from 'src/app/services/userservice.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -33,7 +34,7 @@ password!:string;
 preferenceList!:preference[];
 
 
-constructor(private service:UserserviceService) { }
+constructor(private service:UserserviceService, private  router: Router) { }
 
 ngOnInit(): void {
   this.getPreference();
@@ -62,6 +63,7 @@ for(let i=0; i<this.preferenceList.length;i++){
 
 console.log(newUser)
 this.service.createUser(newUser).subscribe((user)=>(newUser = user));
+this.router.navigate(['/login']);
 }
  
 }
