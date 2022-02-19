@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       (response:user)  => {
         console.log(response);
         const user = response;
-        localStorage.setItem('username',user.username);
+        sessionStorage.setItem('username',user.username);
         this.router.navigate(['/']);
 
       }

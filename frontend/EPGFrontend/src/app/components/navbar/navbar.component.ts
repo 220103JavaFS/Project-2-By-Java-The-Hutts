@@ -15,11 +15,11 @@ export class NavbarComponent implements OnInit {
   }
 
   loggedIn(){
-    return localStorage.getItem('username');
+    return sessionStorage.getItem('username');
   }
 
   onLogout() {
-    localStorage.removeItem('username');
+    sessionStorage.removeItem('username');
   }
 
 }
