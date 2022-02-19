@@ -15,14 +15,14 @@ export class CardComponent implements OnInit {
   
   //Send boolean event to parent component on click
   @Output()
-  onRemoveClick:EventEmitter<number> = new EventEmitter;
+  onRemoveClick:EventEmitter<string> = new EventEmitter;
 
   constructor() { }
   ngOnInit(): void {}
 
   //function for event emitter, attempting to close card
-  removeClick(id:number){
-    this.onRemoveClick.emit(id);   
+  removeClick(title:string){
+    this.onRemoveClick.emit(title);   
   }
 
  

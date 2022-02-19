@@ -32,9 +32,9 @@ export class CardlistComponent implements OnInit {
   }
 
   //function to temporarily remove card from users display
-  removeCard(id:number){
+  removeCard(title:string){
     for(var i= 0; i < this.events.length; i++){
-      if(this.events[i].id === id)
+      if(this.events[i].type === title)
         this.events.splice(i,1);
     }
   }
