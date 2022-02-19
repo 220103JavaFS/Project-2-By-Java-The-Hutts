@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {myevent} from '../event';
 import { getEventClassNames } from '@fullcalendar/angular';
+import { eventactivity } from '../models/eventactivity';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class EventserviceService {
 
   constructor(private http: HttpClient) { }
 
-  createEvent(thisevent:myevent):Observable<myevent>{
-    return this.http.post<myevent>(this.local + "/event", thisevent);
+  createEvent(thisevent:eventactivity):Observable<eventactivity>{
+    return this.http.post<eventactivity>(this.local + "/addevent", thisevent);
   }
 
 //   getEventByID(id:number): Observable<any>{

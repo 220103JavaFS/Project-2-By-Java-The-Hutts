@@ -1,10 +1,10 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import {myevent} from '../../event';
 import {user} from '../../models/user';
 import { ActivityserviceService } from 'src/app/services/activityservice.service';
 import { Observable, Subscriber } from 'rxjs';
 import { eventactivity } from 'src/app/models/eventactivity';
 import { EventserviceService } from 'src/app/services/eventservice.service';
+import { boredActivity } from 'src/app/models/bored';
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
@@ -22,7 +22,7 @@ export class NewcardComponent implements OnInit {
   startTime!:string;
   endTime!:string;
 
-  //variables for rendering random date
+  //variables for choosing random date
   dd!:string;
   thisdate:Date = new Date();
   day:number = this.thisdate.getDate();
@@ -31,6 +31,7 @@ export class NewcardComponent implements OnInit {
 
  //structure to hold eventactivity from request to bored api
  event!:eventactivity;
+ bored!:boredActivity;
 
  //send myevent type to bored api
  @Output()
@@ -44,32 +45,31 @@ export class NewcardComponent implements OnInit {
     return Math.floor(Math.random() * (max - min +1)+min);
   }
  
-  constructor(private service1:ActivityserviceService, private service:EventserviceService) {}
+  constructor(private service1:ActivityserviceService, private service2:EventserviceService) {}
 
   ngOnInit(): void {}
 
   //call api and set current event values to those recieved.
   suggestEvent(){
-    this.service1.getActivity().subscribe((eventactivity) =>(this.event = eventactivity))
-    this.name = this.event.type;
-    this.description = this.event.activity;
+    this.service1.getActivity().subscribe((boredActivity) =>(this.bored = boredActivity))
+    this.name = this.bored.type;
+    this.description = this.bored.activity;
     this.dd = String(this.randomizeDay(this.day,30)).padStart(2,'0');
     this.date = "" + this.yyyy + "-" + this.mm + "-" + this.dd
+  console.log(this.thisdate)
   }
   
   submitEvent(){
     //call event service and post to db
-    let newcard:myevent ={
-      name:this.name,
-      date:this.date,
-      notes:this.description,
+    let newcard:eventactivity ={
+      createdByID:0,
+      type:this.name,
+      date:this.thisdate,
+      activity:this.description,
       status:true,
       startTime:this.startTime,
       endTime:"",
-
     }
-    console.log(newcard);
-    this.service.createEvent(newcard);
+    this.service2.createEvent(newcard).subscribe((eventactivity)=>(newcard = eventactivity));
   }
-  
 }
