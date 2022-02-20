@@ -5,9 +5,6 @@ import { UserserviceService } from 'src/app/services/userservice.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 
-
-
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -28,13 +25,16 @@ export class ProfileComponent implements OnInit {
     {id:8,name:"busywork",selected:false}
     ]}
 
-    user!: user;
-    firstname!:string;
-    lastname!:string;
-    email!:string;
-    username!:string;
-    password!:string;
+    loggedInUser: user = {
+      firstname:'',
+      lastname:'',
+      email:'',
+      username:'',
+      password:'',
+      userPreferences: ['']
+    };
     preferenceList!:preference[];
+    
 
   constructor(private userService: UserserviceService, private authService: AuthService){
   }
@@ -51,8 +51,8 @@ export class ProfileComponent implements OnInit {
   userLoggedIn() {
     this.userService.getUserByUsername(sessionStorage.getItem("username")||'').subscribe({
       next: (data:user)=>{
-        this.user = data;
-        console.log(this.user)
+        this.loggedInUser = data;
+        console.log(this.loggedInUser)
       },
       error:()=>{console.log("failed to get user data")}
     });
