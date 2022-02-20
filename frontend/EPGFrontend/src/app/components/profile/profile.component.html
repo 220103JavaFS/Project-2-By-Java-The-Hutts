@@ -26,84 +26,8 @@
                         <label class="labels" for="userEmail">Primary Email: </label>
                         <input type="text" class="form-control" id="userEmail" [(ngModel)]="loggedInUser.email" [ngModelOptions]="{standalone:true}">
                     </div>
-
                     <br>
-                    
-                    <div>Select the type of activities you like:</div>
-                    <br>
-                    <div class="form-group">
-                        <div>
-                            <label>{{preferenceList[0].name}}</label>
-                        </div>
-                        <div>
-                            <input type="checkbox"  name="{{preferenceList[0].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[0].selected" [ngModelOptions]="{standalone:true}">
-                        </div> 
-                    </div>  
-                    <div class="form-group">
-                        <div>
-                            <label>{{preferenceList[1].name}}</label>
-                        </div>
-                        <div>
-                            <input type="checkbox"  name="{{preferenceList[1].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[1].selected" [ngModelOptions]="{standalone:true}">
-                        </div> 
-                    </div>  
-                    <div class="form-group">
-                        <div>
-                            <label>{{preferenceList[2].name}}</label>
-                        </div>
-                        <div>
-                            <input type="checkbox"  name="{{preferenceList[2].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[2].selected" [ngModelOptions]="{standalone:true}">
-                        </div> 
-                    </div>  
-                    <div class="form-group">
-                        <div>
-                            <label>{{preferenceList[3].name}}</label>
-                        </div>
-                        <div>
-                            <input type="checkbox"  name="{{preferenceList[3].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[3].selected" [ngModelOptions]="{standalone:true}">
-                        </div> 
-                    </div>  
-                    <div class="form-group">
-                        <div>
-                            <label>{{preferenceList[4].name}}</label>
-                        </div>
-                        <div>
-                            <input type="checkbox"  name="{{preferenceList[4].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[4].selected" [ngModelOptions]="{standalone:true}">
-                        </div> 
-                    </div>  
-                    <div class="form-group">
-                        <div>
-                            <label>{{preferenceList[5].name}}</label>
-                        </div>
-                        <div>
-                            <input type="checkbox"  name="{{preferenceList[5].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[5].selected" [ngModelOptions]="{standalone:true}">
-                        </div> 
-                    </div>  
-                    <div class="form-group">
-                        <div>
-                            <label>{{preferenceList[6].name}}</label>
-                        </div>
-                        <div>
-                            <input type="checkbox"  name="{{preferenceList[6].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[6].selected" [ngModelOptions]="{standalone:true}">
-                        </div> 
-                    </div>  
-                    <div class="form-group">
-                        <div>
-                            <label>{{preferenceList[7].name}}</label>
-                        </div>
-                        <div>
-                            <input type="checkbox"  name="{{preferenceList[7].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[7].selected" [ngModelOptions]="{standalone:true}">
-                        </div> 
-                    </div>  
-                    <div class="form-group">
-                        <div>
-                            <label>{{preferenceList[8].name}}</label>
-                        </div>
-                        <div>
-                            <input type="checkbox"  name="{{preferenceList[8].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[8].selected" [ngModelOptions]="{standalone:true}">
-                        </div> 
-                    </div>  
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Update</button>
                 </form>
             </div>
         </div>
