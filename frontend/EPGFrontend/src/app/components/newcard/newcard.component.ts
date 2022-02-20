@@ -49,7 +49,9 @@ export class NewcardComponent implements OnInit {
  
   constructor(private service1:ActivityserviceService, private service2:EventserviceService, private authservice:AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   //call api and set current event values to those recieved.
   suggestEvent(){
@@ -60,43 +62,27 @@ export class NewcardComponent implements OnInit {
     this.date = "" + this.yyyy + "-" + this.mm + "-" + this.dd
     console.log(this.thisdate)
   }
+
   
   submitEvent(){
     let newcard:eventactivity ={
       createdByID:0,
       type:this.name,
-      date:"26-06-1991",
-      activity:"this.description",
+      date:String(this.date),
+      activity:this.description,
       status:true,
-      startTime:"",
+      startTime:this.startTime,
       endTime:""
     }
-/**
- * "createdByID":0,
-"date":"26-06-1991",
-"eventParticipants":null,
-"type":"Busywork",
-"status":true,
-"activity":"This is where the activity description goes",
-"endTime":null,
-"startTime":null
- */
 
-
-
-    // let thisUser:user = {
-    //   firstname:"",
-    //   lastname:"",
-    //   email:"",
-    //   userPreferences:[""],
-    //   username:"usertwo2",
-    //   password:"password3"
-    // }
-    // this.service.createUser(newUser).subscribe((user)=>(newUser = user));
-
-    // this.authservice.authUser(thisUser).subscribe((user) =>(thisUser=user));
-  // console.log(thisUser)
-  console.log(newcard)
-    this.service2.createEvent(newcard).subscribe((eventactivity)=>(newcard = eventactivity));
+    this.name=""
+    this.date=""
+    this.description=""
+    this.startTime=""
+    this.endTime=""
+    
+    this.service2.createEvent(newcard).subscribe((eventactivity)=>{
+      newcard = eventactivity
+      this.service2.newcard.next(true)});
   }
 }
