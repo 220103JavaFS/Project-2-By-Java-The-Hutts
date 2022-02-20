@@ -8,23 +8,23 @@
                 <form>
                     <div class="form-group col-12">
                         <label class="labels" for="firstName">First Name</label>
-                        <input type="text" class="form-control" id="firstName" [(ngModel)]="firstname" [ngModelOptions]="{standalone:true}">
+                        <input type="text" class="form-control" id="firstName" [(ngModel)]="loggedInUser.firstname" [ngModelOptions]="{standalone:true}">
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="lastName">Last Name: </label>
-                        <input type="text" class="form-control" id="lastName" [(ngModel)]="lastname" [ngModelOptions]="{standalone:true}">
+                        <input type="text" class="form-control" id="lastName" [(ngModel)]="loggedInUser.lastname" [ngModelOptions]="{standalone:true}">
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="userName">Username: </label>
-                        <input type="text" class="form-control" id="userName" [(ngModel)]="username" [ngModelOptions]="{standalone:true}" readonly>
+                        <input type="text" class="form-control" id="userName" [(ngModel)]="loggedInUser.username" [ngModelOptions]="{standalone:true}" readonly>
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="password">Password: </label>
-                        <input type="password" class="form-control" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone:true}" readonly>
+                        <input type="password" class="form-control" id="password" [(ngModel)]="loggedInUser.password" [ngModelOptions]="{standalone:true}" readonly>
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="userEmail">Primary Email: </label>
-                        <input type="text" class="form-control" id="userEmail" [(ngModel)]="email" [ngModelOptions]="{standalone:true}">
+                        <input type="text" class="form-control" id="userEmail" [(ngModel)]="loggedInUser.email" [ngModelOptions]="{standalone:true}">
                     </div>
 
                     <br>
