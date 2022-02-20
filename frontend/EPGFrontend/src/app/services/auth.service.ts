@@ -29,4 +29,9 @@ export class AuthService {
     return response
 
   }
+
+  logout(){
+    sessionStorage.removeItem('username');
+    this.http.post<user>(this.local + "/logout",{}).subscribe();
+  }
 }
