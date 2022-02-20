@@ -16,11 +16,11 @@ export class EventserviceService {
   
   createEvent(thisevent:eventactivity):Observable<eventactivity>{
     // const headers = new HttpHeaders()
-    return this.http.post<eventactivity>(this.local + "/addevent/" + localStorage.getItem('username'), thisevent);
+    return this.http.post<eventactivity>(this.local + "/addevent/" + sessionStorage.getItem('username'), thisevent);
   }
 
   getEvent():Observable<eventactivity[]>{
-    return this.http.get<eventactivity[]>(this.local + "/myevents");
+    return this.http.get<eventactivity[]>(this.local + "/myevents/" + sessionStorage.getItem('username'));
   }
 
 //   getEventByID(id:number): Observable<any>{
