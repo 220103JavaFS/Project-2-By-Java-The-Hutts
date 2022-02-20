@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { user } from 'src/app/models/user';
 import { preference } from 'src/app/models/preference';
 import { UserserviceService } from 'src/app/services/userservice.service';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 
 
@@ -26,6 +28,7 @@ export class ProfileComponent implements OnInit {
     {id:8,name:"busywork",selected:false}
     ]}
 
+    user!: user;
     firstname!:string;
     lastname!:string;
     email!:string;
@@ -33,14 +36,30 @@ export class ProfileComponent implements OnInit {
     password!:string;
     preferenceList!:preference[];
 
-  constructor(private userService: UserserviceService){
+  constructor(private userService: UserserviceService, private authService: AuthService){
   }
 
   ngOnInit(): void {
+    this.userLoggedIn();
     this.getPreference();
   }
 
   onChange(){
     console.log(this.preferenceList)
+  }
+
+  userLoggedIn() {
+    this.userService.getUserByUsername(sessionStorage.getItem("username")||'').subscribe({
+      next: (data:user)=>{
+        this.user = data;
+        console.log(this.user)
+      },
+      error:()=>{console.log("failed to get user data")}
+    });
+  }
+  
+
+  onSubmit() {
+
   }
 }
