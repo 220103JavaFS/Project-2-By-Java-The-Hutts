@@ -1,109 +1,111 @@
-<!-- <div class="row">
+<div class="row">
     <div class="col-6 m-auto">
         <div class="card m-auto">
             <div class="card-header">
                 Profile
             </div>
             <div class="card-body">
-                <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                <form>
                     <div class="form-group col-12">
                         <label class="labels" for="firstName">First Name</label>
-                        <input type="text" class="form-control" formControlName="newUserFName">
-                        <span *ngIf="!newUserFName.valid && (newUserFName.touched || userSubmitted)" class="error-block">
-                            please provide your first name
-                          </span>
+                        <input type="text" class="form-control" id="firstName" [(ngModel)]="firstname" [ngModelOptions]="{standalone:true}">
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="lastName">Last Name: </label>
-                        <input type="text" class="form-control" formControlName="newUserLName">
-                        <span *ngIf="!newUserLName.valid && (newUserLName.touched || userSubmitted)" class="error-block">
-                            please provide your last name
-                          </span>
+                        <input type="text" class="form-control" id="lastName" [(ngModel)]="lastname" [ngModelOptions]="{standalone:true}">
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="userName">Username: </label>
-                        <input type="text" class="form-control" formControlName="newUsername"  readonly>
+                        <input type="text" class="form-control" id="userName" [(ngModel)]="username" [ngModelOptions]="{standalone:true}" readonly>
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="password">Password: </label>
-                        <input type="password" class="form-control" formControlName="newPassword"  readonly>
+                        <input type="password" class="form-control" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone:true}" readonly>
                     </div>
                     <div class="form-group col-12">
                         <label class="labels" for="userEmail">Primary Email: </label>
-                        <input type="text" class="form-control" formControlName="newEmail">
-                        <span *ngIf="!newEmail.valid && (newEmail.touched || userSubmitted)" class="error-block">
-                            <span *ngIf="newEmail.hasError('required')">
-                                please provide email
-                            </span>
-                            <span *ngIf="newEmail.hasError('email')">
-                                please provide valid email
-                            </span>
-                        </span>
+                        <input type="text" class="form-control" id="userEmail" [(ngModel)]="email" [ngModelOptions]="{standalone:true}">
                     </div>
 
                     <br>
                     
-                    <p>Please choose your activity preferences:</p>
-                    <div class="form-group form-check">
-                        <label for="education">Education</label>
-                        <br>
-                        <input type="checkbox" formControlName="userPreferences"  id="education" [(ngModel)]="education">
-                    </div>
-                    <div>
-                        <label for="recreational">Recreational</label>
-                        <br>
-                        <input type="checkbox" formControlName="userPreferences"  id="recreational" [(ngModel)]="recreational">
-                    </div>
-                    <div>    
-                        <label for="social">Social</label>
-                        <br>
-                        <input type="checkbox" formControlName="userPreferences" id="social" [(ngModel)]="social">
-                    </div>
-                    <div>
-                        <label for="diy">DIY</label>
-                        <br>
-                        <input type="checkbox" formControlName="userPreferences" id="diy" [(ngModel)]="diy">
-                    </div>
-                    <div>
-                        <label for="charity">Charity</label>
-                        <br>
-                        <input type="checkbox" formControlName="userPreferences" id="charity" [(ngModel)]="charity">
-                    </div>
-                    <div>
-                        <label for="cooking">Cooking</label>
-                        <br>
-                        <input type="checkbox" formControlName="userPreferences" id="cooking" [(ngModel)]="cooking">
-                    </div>
-                    <div>
-                        <label for="relaxation">Relaxation</label>
-                        <br>
-                        <input type="checkbox" formControlName="userPreferences" id="relaxation" [(ngModel)]="relaxation">
-                    </div>
-                    <div>
-                        <label for="music">Music</label>
-                        <br>
-                        <input type="checkbox" formControlName="userPreferences" id="music" [(ngModel)]="music">
-                    </div>
-                    <div>
-                        <label for="busywork">Busywork</label>
-                        <br>
-                        <input type="checkbox" formControlName="userPreferences" id="busywork" [(ngModel)]="busywork">
-                    </div>
-                    <div class="form-group col-12">
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    </div>
+                    <div>Select the type of activities you like:</div>
+                    <br>
+                    <div class="form-group">
+                        <div>
+                            <label>{{preferenceList[0].name}}</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"  name="{{preferenceList[0].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[0].selected" [ngModelOptions]="{standalone:true}">
+                        </div> 
+                    </div>  
+                    <div class="form-group">
+                        <div>
+                            <label>{{preferenceList[1].name}}</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"  name="{{preferenceList[1].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[1].selected" [ngModelOptions]="{standalone:true}">
+                        </div> 
+                    </div>  
+                    <div class="form-group">
+                        <div>
+                            <label>{{preferenceList[2].name}}</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"  name="{{preferenceList[2].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[2].selected" [ngModelOptions]="{standalone:true}">
+                        </div> 
+                    </div>  
+                    <div class="form-group">
+                        <div>
+                            <label>{{preferenceList[3].name}}</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"  name="{{preferenceList[3].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[3].selected" [ngModelOptions]="{standalone:true}">
+                        </div> 
+                    </div>  
+                    <div class="form-group">
+                        <div>
+                            <label>{{preferenceList[4].name}}</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"  name="{{preferenceList[4].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[4].selected" [ngModelOptions]="{standalone:true}">
+                        </div> 
+                    </div>  
+                    <div class="form-group">
+                        <div>
+                            <label>{{preferenceList[5].name}}</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"  name="{{preferenceList[5].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[5].selected" [ngModelOptions]="{standalone:true}">
+                        </div> 
+                    </div>  
+                    <div class="form-group">
+                        <div>
+                            <label>{{preferenceList[6].name}}</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"  name="{{preferenceList[6].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[6].selected" [ngModelOptions]="{standalone:true}">
+                        </div> 
+                    </div>  
+                    <div class="form-group">
+                        <div>
+                            <label>{{preferenceList[7].name}}</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"  name="{{preferenceList[7].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[7].selected" [ngModelOptions]="{standalone:true}">
+                        </div> 
+                    </div>  
+                    <div class="form-group">
+                        <div>
+                            <label>{{preferenceList[8].name}}</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"  name="{{preferenceList[8].name}}" id="exampleCheck1" (change)="onChange()" [(ngModel)]="preferenceList[8].selected" [ngModelOptions]="{standalone:true}">
+                        </div> 
+                    </div>  
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
         </div>
     </div>
-</div> -->
-
-    <!--<section class="chekedPreferences">
-        <p>You chose:</p>
-         {{preferences.value | json}} -->
-
-
-         <!-- <div class="form-group col-12">
-                        <label class="labels" for="password">Password: </label>
-                        <input type="password" class="form-control" formControlName="newPassword"  readonly [(ngModel)]="testuser.newPassword">
-                    </div> -->
+</div>
