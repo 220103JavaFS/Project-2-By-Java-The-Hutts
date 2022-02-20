@@ -10,7 +10,7 @@
             <a *ngIf = "loggedIn()" class="nav-link active" aria-current="page" routerLinkActive="active" routerLink="profile" id="profile">Profile</a>
           </li>
           <li class="nav-item">
-            <a *ngIf = "loggedIn()" class="nav-link active" href="MyEvents">Events</a>
+            <a *ngIf = "loggedIn()" class="nav-link active" routerLinkActive="active" routerLink="MyEvents" id="cardlist">Events</a>
           </li>
           <li class="nav-item">
             <a *ngIf = "loggedIn()" class="nav-link active" routerLinkActive="active" routerLink="calendar" id="calendar">Calendar</a>

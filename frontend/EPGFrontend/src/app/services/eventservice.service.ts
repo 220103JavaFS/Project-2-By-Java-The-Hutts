@@ -18,6 +18,10 @@ export class EventserviceService {
     return this.http.post<eventactivity>(this.local + "/addevent", thisevent);
   }
 
+  getEvent():Observable<eventactivity[]>{
+    return this.http.get<eventactivity[]>(this.local + "/myevents");
+  }
+
 //   getEventByID(id:number): Observable<any>{
 //     return this.http.get<number>(this.local + "/path/" + id);
 //   }

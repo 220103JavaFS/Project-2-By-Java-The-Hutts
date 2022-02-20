@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarOptions, DateSelectArg, EventClickArg, EventApi } from '@fullcalendar/angular';
+import { CalendarOptions, DateSelectArg, EventClickArg, EventApi, getEventClassNames } from '@fullcalendar/angular';
+import { eventactivity } from 'src/app/models/eventactivity';
+import { EventserviceService } from 'src/app/services/eventservice.service';
 import { INITIAL_EVENTS, createEventId } from './event-utils';
 
 @Component({
@@ -9,9 +11,10 @@ import { INITIAL_EVENTS, createEventId } from './event-utils';
 })
 export class CalendarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: EventserviceService) { }
 
   ngOnInit(): void {
+    this.getEvents();
   }
 
   calendarOptions: CalendarOptions = {
@@ -33,6 +36,7 @@ export class CalendarComponent implements OnInit {
 
   };
   currentEvents: EventApi[] = [];
+  events: eventactivity[] = [];
 
   handleDateSelect(selectInfo: DateSelectArg) {
     const title = prompt('Please enter a new title for your event');
@@ -59,6 +63,14 @@ export class CalendarComponent implements OnInit {
 
   handleEvents(events: EventApi[]) {
     this.currentEvents = events;
+    
+  }
+  
+  getEvents(){
+    this.service.getEvent().subscribe(
+      (response:eventactivity[]) => {
+        this.events = response;
+    });
   }
 
 }
