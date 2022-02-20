@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { getEventClassNames } from '@fullcalendar/angular';
 import { eventactivity } from '../models/eventactivity';
 
@@ -10,9 +10,11 @@ import { eventactivity } from '../models/eventactivity';
 export class EventserviceService {
 
   private local = 'http://localhost:8083/data/users'
-
-
-  constructor(private http: HttpClient) { }
+  public newcard!: Subject<boolean>;
+  
+  constructor(private http: HttpClient) {
+    this.newcard = new Subject<boolean>();
+   }
   
   createEvent(thisevent:eventactivity):Observable<eventactivity>{
     // const headers = new HttpHeaders()

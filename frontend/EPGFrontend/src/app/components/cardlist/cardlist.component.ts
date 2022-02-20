@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import {EVENTS} from '../../mock-event'
 import { ActivityserviceService } from 'src/app/services/activityservice.service';
 import { eventactivity } from 'src/app/models/eventactivity';
+import { EventserviceService } from 'src/app/services/eventservice.service';
 @Component({
   selector: 'app-cardlist',
   templateUrl: './cardlist.component.html',
@@ -9,8 +10,8 @@ import { eventactivity } from 'src/app/models/eventactivity';
 })
 export class CardlistComponent implements OnInit {
   
-  //events variable will be set to event service get request
-  events:eventactivity[] = EVENTS;
+  //array to hold eventlist
+  events:eventactivity[] = [];
   toggleNewEvent:boolean = false;
 
   //boolean for hiding a card
@@ -19,16 +20,23 @@ export class CardlistComponent implements OnInit {
   //stores activity recieved by api
   suggestActivity!:eventactivity;
 
-  //array to display users events
-  eventlist!:eventactivity[]
-
   //constructor with db connection
-  constructor() { }
+  constructor(private eventService:EventserviceService) { }
 
   ngOnInit(): void {
+    this.eventService.getEvent().subscribe((response: eventactivity[])=>{this.events = response});
+    this.newCardSubscribe();
+
   }
   toggleEvent(){
     this.toggleNewEvent = !this.toggleNewEvent
+  }
+
+  newCardSubscribe(){
+    this.eventService.newcard.subscribe((updated: boolean) =>{
+      if(updated){
+        this.eventService.getEvent().subscribe((response: eventactivity[])=>{this.events = response});}
+      })
   }
 
   //function to temporarily remove card from users display
