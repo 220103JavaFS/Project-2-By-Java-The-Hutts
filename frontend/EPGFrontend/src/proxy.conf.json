@@ -1,7 +1,0 @@
-{
-    "/data/*": {
-        "target": "http://localhost:8083/data/users",
-        "secure": false,
-        "logLevel": "debug"
-    }
-}

@@ -1,7 +1,7 @@
 import {eventactivity} from './models/eventactivity'
 export const EVENTS:eventactivity[] = [
     {
-        date:new Date('December 17, 1995 03:24:00'),
+        date:"06-05-1992",
         createdByID:1,
         type:"Busywork",
         activity:"Laundry",
@@ -12,7 +12,7 @@ export const EVENTS:eventactivity[] = [
     },
     
     {
-        date:new Date('December 17, 1995 03:24:00'),
+        date:"06-05-1992",
         createdByID:1,
         type:"Busywork",
         activity:"Cooking Dinner",
