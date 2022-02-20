@@ -33,6 +33,12 @@ export class ProfileComponent implements OnInit {
       password:'',
       userPreferences: ['']
     };
+
+    firstname!:string;
+    lastname!:string;
+    email!:string;
+    username!:string;
+    password!:string;
     preferenceList!:preference[];
     
 
@@ -53,13 +59,26 @@ export class ProfileComponent implements OnInit {
       next: (data:user)=>{
         this.loggedInUser = data;
         console.log(this.loggedInUser)
+        return this.loggedInUser;
       },
       error:()=>{console.log("failed to get user data")}
     });
+
+  }
+
+  updateData() {
+    let updatedUser: user = {
+      firstname:this.loggedInUser.firstname,
+      lastname:this.loggedInUser.lastname,
+      email:this.loggedInUser.email,
+      username:this.loggedInUser.username,
+      password:this.loggedInUser.password,
+      userPreferences: this.loggedInUser.userPreferences
+    }
+    console.log(updatedUser)
   }
   
-
   onSubmit() {
-
+    this.updateData();
   }
 }
