@@ -13,6 +13,10 @@ const routes: Routes = [{
   component: LandingpageComponent,
 },
 {
+  path:"login",
+  component: LoginComponent
+},
+{
   path:"MyEvents",
   component: CardlistComponent
 }, {
@@ -24,10 +28,7 @@ const routes: Routes = [{
 }, {
   path:"register",
   component: RegisterComponent
-}, {
-  path:"login",
-  component: LoginComponent
-}
+}, 
 ];
 
 @NgModule({
