@@ -8,12 +8,12 @@ import { user } from '../models/user'
 export class UserserviceService {
 
   private local = 'https://localhost:6000/users/'
-  private local2 = 'http://localhost:8083/data/users'
+  private local2 = 'http://localhost:8083/data/users/'
 
   constructor(private http: HttpClient) { }
 
   createUser(thisuser:user):Observable<user>{
-    return this.http.post<user>(this.local2 +'/registration',thisuser);
+    return this.http.post<user>(this.local2 +'registration',thisuser);
   }
 
   getUserByID(id:number):Observable<any>{
@@ -21,7 +21,7 @@ export class UserserviceService {
   }
 
   getUserByUsername(name:string):Observable<any>{
-    return this.http.get<string>(this.local + name);
+    return this.http.get<string>(this.local2 + name);
   }
 
   getUserByEmail(email:string):Observable<any>{
