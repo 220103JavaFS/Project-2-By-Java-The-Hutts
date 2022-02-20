@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, JsonpClientBackend} from '@angular/common/http';
+import { HttpClient, HttpHeaderResponse, JsonpClientBackend} from '@angular/common/http';
 import { user } from '../models/user'
 import { Observable } from 'rxjs';
 
@@ -20,11 +20,13 @@ export class AuthService {
   //   return UserArray.find((p: { username: any; password: any; }) => p.username === user.username && p.password === user.password);
   // }
 
-  authUser(users:user):Observable<user>{
+  authUser(users:user):Observable<any>{
     let body = {
       "username":users.username,
       "password":users.password
     }
-    return this.http.post<user>(this.local + '/login',body);
+    let response = this.http.post<any>(this.local + '/login',body);
+    return response
+
   }
 }

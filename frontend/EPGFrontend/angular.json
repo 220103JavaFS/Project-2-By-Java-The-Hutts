@@ -67,10 +67,6 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "EPGFrontend:build",
-            "proxyConfig": "src/proxy.conf.json"
-        },
           "configurations": {
             "production": {
               "browserTarget": "EPGFrontend:build:production"

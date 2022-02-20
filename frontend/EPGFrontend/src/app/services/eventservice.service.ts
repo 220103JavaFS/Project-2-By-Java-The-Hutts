@@ -13,9 +13,10 @@ export class EventserviceService {
 
 
   constructor(private http: HttpClient) { }
-
+  
   createEvent(thisevent:eventactivity):Observable<eventactivity>{
-    return this.http.post<eventactivity>(this.local + "/addevent", thisevent);
+    // const headers = new HttpHeaders()
+    return this.http.post<eventactivity>(this.local + "/addevent/" + localStorage.getItem('username'), thisevent);
   }
 
   getEvent():Observable<eventactivity[]>{

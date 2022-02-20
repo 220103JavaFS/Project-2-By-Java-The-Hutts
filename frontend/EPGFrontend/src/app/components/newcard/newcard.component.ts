@@ -5,6 +5,7 @@ import { Observable, Subscriber } from 'rxjs';
 import { eventactivity } from 'src/app/models/eventactivity';
 import { EventserviceService } from 'src/app/services/eventservice.service';
 import { boredActivity } from 'src/app/models/bored';
+import { AuthService } from 'src/app/services/auth.service';
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
@@ -21,6 +22,7 @@ export class NewcardComponent implements OnInit {
   status:boolean = false;
   startTime!:string;
   endTime!:string;
+  thisuser!:user
 
   //variables for choosing random date
   dd!:string;
@@ -45,7 +47,7 @@ export class NewcardComponent implements OnInit {
     return Math.floor(Math.random() * (max - min +1)+min);
   }
  
-  constructor(private service1:ActivityserviceService, private service2:EventserviceService) {}
+  constructor(private service1:ActivityserviceService, private service2:EventserviceService, private authservice:AuthService) {}
 
   ngOnInit(): void {}
 
@@ -56,20 +58,45 @@ export class NewcardComponent implements OnInit {
     this.description = this.bored.activity;
     this.dd = String(this.randomizeDay(this.day,30)).padStart(2,'0');
     this.date = "" + this.yyyy + "-" + this.mm + "-" + this.dd
-  console.log(this.thisdate)
+    console.log(this.thisdate)
   }
   
   submitEvent(){
-    //call event service and post to db
     let newcard:eventactivity ={
       createdByID:0,
       type:this.name,
-      date:this.thisdate,
-      activity:this.description,
+      date:"26-06-1991",
+      activity:"this.description",
       status:true,
-      startTime:this.startTime,
-      endTime:"",
+      startTime:"",
+      endTime:""
     }
+/**
+ * "createdByID":0,
+"date":"26-06-1991",
+"eventParticipants":null,
+"type":"Busywork",
+"status":true,
+"activity":"This is where the activity description goes",
+"endTime":null,
+"startTime":null
+ */
+
+
+
+    // let thisUser:user = {
+    //   firstname:"",
+    //   lastname:"",
+    //   email:"",
+    //   userPreferences:[""],
+    //   username:"usertwo2",
+    //   password:"password3"
+    // }
+    // this.service.createUser(newUser).subscribe((user)=>(newUser = user));
+
+    // this.authservice.authUser(thisUser).subscribe((user) =>(thisUser=user));
+  // console.log(thisUser)
+  console.log(newcard)
     this.service2.createEvent(newcard).subscribe((eventactivity)=>(newcard = eventactivity));
   }
 }
