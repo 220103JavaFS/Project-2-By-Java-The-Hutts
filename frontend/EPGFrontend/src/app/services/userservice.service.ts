@@ -16,6 +16,10 @@ export class UserserviceService {
     return this.http.post<user>(this.local2 +'registration',thisuser);
   }
 
+  updateUser(updatedUser:user):Observable<user>{
+    return this.http.put<user>(this.local2 + 'update', updatedUser);
+  }
+
   getUserByID(id:number):Observable<any>{
     return this.http.get<number>(this.local + id);
   }
@@ -27,5 +31,5 @@ export class UserserviceService {
   getUserByEmail(email:string):Observable<any>{
     return this.http.get<string>(this.local + email);
   }
-  
+
 }

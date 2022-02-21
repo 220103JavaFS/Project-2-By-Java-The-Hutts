@@ -65,8 +65,8 @@ export class ProfileComponent implements OnInit {
     });
 
   }
-
-  updateData() {
+  
+  onSubmit() {
     let updatedUser: user = {
       firstname:this.loggedInUser.firstname,
       lastname:this.loggedInUser.lastname,
@@ -76,9 +76,6 @@ export class ProfileComponent implements OnInit {
       userPreferences: this.loggedInUser.userPreferences
     }
     console.log(updatedUser)
-  }
-  
-  onSubmit() {
-    this.updateData();
+    this.userService.updateUser(updatedUser).subscribe((user)=>(updatedUser = user));
   }
 }
