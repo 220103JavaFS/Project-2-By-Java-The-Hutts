@@ -6,6 +6,7 @@ import { eventactivity } from 'src/app/models/eventactivity';
 import { EventserviceService } from 'src/app/services/eventservice.service';
 import { boredActivity } from 'src/app/models/bored';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserserviceService } from 'src/app/services/userservice.service';
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
@@ -47,7 +48,7 @@ export class NewcardComponent implements OnInit {
     return Math.floor(Math.random() * (max - min +1)+min);
   }
  
-  constructor(private service1:ActivityserviceService, private service2:EventserviceService, private authservice:AuthService) {}
+  constructor(private activityService:ActivityserviceService, private eventService:EventserviceService, private userService:UserserviceService) {}
 
   ngOnInit(): void {
 
@@ -55,7 +56,7 @@ export class NewcardComponent implements OnInit {
 
   //call api and set current event values to those recieved.
   suggestEvent(){
-    this.service1.getActivity().subscribe((boredActivity) =>(this.bored = boredActivity))
+    this.activityService.getActivity().subscribe((boredActivity) =>(this.bored = boredActivity))
     this.name = this.bored.type;
     this.description = this.bored.activity;
     this.dd = String(this.randomizeDay(this.day,30)).padStart(2,'0');
@@ -81,8 +82,8 @@ export class NewcardComponent implements OnInit {
     this.startTime=""
     this.endTime=""
     
-    this.service2.createEvent(newcard).subscribe((eventactivity)=>{
+    this.eventService.createEvent(newcard).subscribe((eventactivity)=>{
       newcard = eventactivity
-      this.service2.newcard.next(true)});
+      this.eventService.newcard.next(true)});
   }
 }
