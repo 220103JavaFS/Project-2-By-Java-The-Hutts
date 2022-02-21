@@ -32,6 +32,7 @@ email!:string;
 username!:string;
 password!:string;
 preferenceList!:preference[];
+arr!:[string];
 
 
 constructor(private service:UserserviceService, private  router: Router) { }
@@ -52,7 +53,7 @@ let newUser:user={
   email: this.email,
   password: this.password,
   username:this.username,
-  userPreferences:[""]
+  userPreferences:this.arr,
 }
 
 for(let i=0; i<this.preferenceList.length;i++){
